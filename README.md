@@ -4,8 +4,12 @@ Today, only 40% of high school graduates in Washington enroll in higher educatio
 Washington STEM manages the Horizons grants, a four year regional partnerships to boost student transitions from high school to 1-year certificate programs, two- and four-year degree programs and apprenticeships. The Horizons partnerships, funded by the Bill & Melinda Gates Foundation includes K-12 schools, colleges, and community-based organizations in the Olympic and Kitsap peninsulas, the Southwest region, the Palouse, and South King County.
 
 Washington STEM also provides technical assistance to regional partners as they build capacity around accessing and leveraging data to improve student outcomes. Other technical advisors in the partnership include Sankofa, Scholar Fund, and College Access: Research in Action (CARA). These experts in their field will work with education partners to, respectively, enhance measurement and evaluation, equity and student voice (surveys), and advising, all through a continuous improvement model aimed at sustainability.
+## Contact
+Washington STEM general inquiries: info@washingtonstem.org
+Data specific inquiries: impact@washingtonstem.org
+
 ## R Script
-### Last updated 7/22/2025. Templates created by Rachel Tavolacci & Mikel Poppe.
+### Last updated 7/22/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
 ### Code of Conduct: 
 These templates are designed to help researchers and educators improve equitable
 postsecondary readiness by better understanding patterns between high school experiences and
