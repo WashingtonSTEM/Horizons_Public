@@ -33,22 +33,28 @@ Horizons/1.Data: Contains subfolders of all raw and processed data needed to run
 General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. 
 For any questions, please email impact@washingtonstem.org
 1. Create the following folders in a local directory you would like to read and write data to. Add folders for additional years as relevant.
-  -1.Data/Raw_Data/2024_Exports
-  -1.Data/Raw_Data/2025_Exports
-  -1.Data/Cleaned_Data/2024
-  -1.Data/Cleaned_Data/2025
-  -1.Data/Dashboard_Files
-  -1.Data/Crosswalks
+*1.Data/Raw_Data/2024_Exports
+*1.Data/Raw_Data/2025_Exports
+*1.Data/Cleaned_Data/2024
+*1.Data/Cleaned_Data/2025
+*1.Data/Dashboard_Files
+*1.Data/Crosswalks
+   
 2. Save the below files (found in the base of the Cleaned_Data folder of this repo) to your local '1.Data/Cleaned_Data/' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
-   -2023_IPEDS_long.csv
-   -FAFSA 10yrs.csv
-   -Sankey Template. xlsx
-   -Report_Card_Graduation_2014-15_to_2022-2023.csv
-3. Download raw data, as noted in the script. 
-4. Save the raw data to 1.Data/Raw_Data/2025_Exports (or current year if past 2025)
-5. Update the directory in the script to match your computer's.
-6. Run the script.
-7. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local 1.Data/Dashboard_Files folder. Save your own version of the workbook!
+*2023_IPEDS_long.csv
+*FAFSA 10yrs.csv
+*Sankey Template. xlsx
+*Report_Card_Graduation_2014-15_to_2022-2023.csv
+
+3. Download raw data, as noted in the script.
+   
+4. Save the raw data to *1.Data/Raw_Data/2025_Exports* (or current year if past 2025).
+   
+6. Update the directory in the script to match your computer's.
+   
+8. Run the script.
+   
+10. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!
 
 
 # Learn more:
