@@ -5,8 +5,8 @@ Washington STEM manages the Horizons grants, a four year regional partnerships t
 
 Washington STEM also provides technical assistance to regional partners as they build capacity around accessing and leveraging data to improve student outcomes. Other technical advisors in the partnership include Sankofa, Scholar Fund, and College Access: Research in Action (CARA). These experts in their field will work with education partners to, respectively, enhance measurement and evaluation, equity and student voice (surveys), and advising, all through a continuous improvement model aimed at sustainability.
 ## Contact
-Washington STEM general inquiries: info@washingtonstem.org
-Data specific inquiries: impact@washingtonstem.org
+### Washington STEM general inquiries: info@washingtonstem.org
+### Data specific inquiries: impact@washingtonstem.org
 
 ## R Script
 ### Last updated 7/22/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
