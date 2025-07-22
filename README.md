@@ -5,15 +5,15 @@ Washington STEM manages the Horizons grants, a four year regional partnerships t
 
 Washington STEM also provides technical assistance to regional partners as they build capacity around accessing and leveraging data to improve student outcomes. Other technical advisors in the partnership include Sankofa, Scholar Fund, and College Access: Research in Action (CARA). These experts in their field will work with education partners to, respectively, enhance measurement and evaluation, equity and student voice (surveys), and advising, all through a continuous improvement model aimed at sustainability.
 ## R Script
-### Last updated 7/22/2025. Scripts originally created by Mikel Poppe. Adapted and maintained by Rachel Tavolacci.
+### Last updated 7/22/2025. Templates created by Rachel Tavolacci & Mikel Poppe.
 ### Code of Conduct: 
-These templates are designed to help researchers and educators, improve equitable
+These templates are designed to help researchers and educators improve equitable
 postsecondary readiness by better understanding patterns between high school experiences and
 postsecondary outcomes. This dashboard can help 
 * Challenge Hunches
 * Understand patterns across high school coursetaking, financial aid completion, and postsecondary enrollment, persistence, and completion
 
-These resources should be used to analyze strengths and weaknesses of the school system, not individual students, families, or staff. 
+These resources should be used to analyze strengths and weaknesses of the school system, not individual students, families, communties, or staff. 
 
 Washington STEM's Horizons Technical Assistance Templates © 2025 is
 licensed under Attribution-NonCommercial 4.0 International. To view a copy of this license, visit
@@ -25,16 +25,31 @@ https://github.com/WashingtonSTEM/Horizons_Public
 #### The script contains instructions. At the start of the script, you will need to set the base directory to match the folders you want to read and write to.
 
 ### Folders:
-Script: Contains all scripts needed to process data.
+Script: Contains the script needed to process data.
 Workbook: Contains Tableau workbook (connected to sample data). 
-Horizons/1.Data: Contains subfolders of all raw and processed sample data needed to run scripts and connect to workbook. The script notes download link for raw data.
+Horizons/1.Data: Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory to easily run the script. The script notes download link for raw data.
+2023_IPEDS_long.csv, FAFSA 10yrs.csv, Sankey Template. xlsx
 
-General overview:
-1. Download raw data, as noted in the script.
-2. Save the raw data (either to a new year folder, or replace the sample datasets).
-3. Update the directory in the script.
-4. Run the script.
-5. Open the workbook and reconnect to the newly written files in the Dashboard_files folder.
+General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. 
+For any questions, please email impact@washingtonstem.org
+1. Create the following folders in a local directory you would like to read and write data to. Add folders for additional years as relevant.
+  -1.Data/Raw_Data/2024_Exports
+  -1.Data/Raw_Data/2025_Exports
+  -1.Data/Cleaned_Data/2024
+  -1.Data/Cleaned_Data/2025
+  -1.Data/Dashboard_Files
+  -1.Data/Crosswalks
+2. Save the below files (found in the base of the Cleaned_Data folder of this repo) to your local '1.Data/Cleaned_Data/' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
+   -2023_IPEDS_long.csv
+   -FAFSA 10yrs.csv
+   -Sankey Template. xlsx
+   -Report_Card_Graduation_2014-15_to_2022-2023.csv
+3. Download raw data, as noted in the script. 
+4. Save the raw data to 1.Data/Raw_Data/2025_Exports (or current year if past 2025)
+5. Update the directory in the script to match your computer's.
+6. Run the script.
+7. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local 1.Data/Dashboard_Files folder. Save your own version of the workbook!
+
 
 # Learn more:
 To dive deeper into the student experiences and adult biases which impact postsecondary transitions, explore our H2P work: https://github.com/WashingtonSTEM/H2P_Public/edit/main/README.md
