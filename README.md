@@ -28,7 +28,6 @@ https://github.com/WashingtonSTEM/Horizons_Public
 Script: Contains the script needed to process data.
 Workbook: Contains Tableau workbook (connected to sample data). 
 Horizons/1.Data: Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory to easily run the script. The script notes download link for raw data.
-2023_IPEDS_long.csv, FAFSA 10yrs.csv, Sankey Template. xlsx
 
 ### General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. 
 #### For any questions, please email impact@washingtonstem.org
