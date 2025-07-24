@@ -50,6 +50,7 @@ Horizons/1.Data: Contains subfolders of all raw and processed data needed to run
 * FAFSA 10yrs.csv
 * Sankey Template. xlsx
 * Report_Card_Graduation_2014-15_to_2022-2023.csv
+* RC_SQSS.csv (in raw2024)
 
 3. Download raw data, as noted in the script.
    
