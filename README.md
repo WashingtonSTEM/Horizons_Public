@@ -58,9 +58,10 @@ Horizons/1.Data: Contains subfolders of all raw and processed data needed to run
    
 5. Update the directory in the script to match your computer's.
    
-6. Make needed updates to the script, then run start to finish.
+6. Make needed updates to the script, then run start to finish. See *Review Step* at the end of the script for quality check.
    * Update currentyear parameter current year of newly exported data  and base_dir to match the parent folders of the Horizons folders.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% #ADD ADDITION YEARS HERE AS NEEDED!* line of code.
+   * Review the *CHECK FOR CHANGED COLUMN NAMES & RENAME AS NEEDED* steps and add any needed updates
    
 7. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!
 
