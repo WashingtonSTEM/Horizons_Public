@@ -56,11 +56,13 @@ Horizons/1.Data: Contains subfolders of all raw and processed data needed to run
    
 4. Save the raw data to *1.Data/Raw_Data/2025_Exports* (or current year if past 2025).
    
-6. Update the directory in the script to match your computer's.
+5. Update the directory in the script to match your computer's.
    
-8. Run the script.
+6. Make needed updates to the script, then run start to finish.
+   * Update currentyear parameter current year of newly exported data  and base_dir to match the parent folders of the Horizons folders.
+   * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% #ADD ADDITION YEARS HERE AS NEEDED!* line of code.
    
-10. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!
+7. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!
 
 
 # Learn more:
