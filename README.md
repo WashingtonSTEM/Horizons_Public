@@ -60,6 +60,7 @@ Horizons/1.Data: Contains subfolders of all raw and processed data needed to run
    
 6. Make needed updates to the script, then run start to finish. See *Review Step* at the end of the script for quality check.
    * Update currentyear parameter current year of newly exported data  and base_dir to match the parent folders of the Horizons folders.
+   * Add additional redacted ranges to the *#Function to clean any improper redacted ranges* as needed
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% #ADD ADDITION YEARS HERE AS NEEDED!* line of code.
    * Review the *CHECK FOR CHANGED COLUMN NAMES & RENAME AS NEEDED* steps and add any needed updates
    
