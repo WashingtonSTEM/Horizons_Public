@@ -37,7 +37,7 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
 * Horizons/1.Data/Raw_Data/2025_Exports
 * Horizons/1.Data/Cleaned_Data/2024
 * Horizons/1.Data/Cleaned_Data/2025
-* Horizons/1.Data/Dashboard_Files #DRAFT - FILES AND DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
+* Horizons/1.Data/Dashboard_Files
   
 2. These datasets contain prepped historical data, not available in this format in their raw, public form. Save them to your local folders.
 
@@ -67,7 +67,7 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
-8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!   #DRAFT - DASHBOARD & DASHBOARD FILES WILL BE UPLOADED TO REPO EARLY AUGUST
+8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update footnotes in dashboard as needed. Save your own version of the workbook! #DRAFT - DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
 
 
 # Learn more:
