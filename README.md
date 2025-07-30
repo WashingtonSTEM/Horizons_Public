@@ -37,21 +37,27 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
 * Horizons/1.Data/Raw_Data/2025_Exports
 * Horizons/1.Data/Cleaned_Data/2024
 * Horizons/1.Data/Cleaned_Data/2025
-* Horizons/1.Data/Dashboard_Files
-    #DRAFT - FILES AND DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
-2. Save the below files (found in the base of the Cleaned_Data folder of this repo) to your local 'Horizons/1.Data/Cleaned_Data/' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
+* Horizons/1.Data/Dashboard_Files #DRAFT - FILES AND DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
+  
+2. These datasets contain prepped historical data, not available in this format in their raw, public form. Save them to your local folders.
+
+A) Found in the base of the Cleaned_Data folder of this repo -> save to to your local 'Horizons/1.Data/Cleaned_Data/' folder:
 * 2023_IPEDS_long.csv
 * FAFSA 10yrs.csv
 * Sankey Template. xlsx
 * Regional_Analysis_Crosswalk.xlsx
-  Save these files (found in 1.Data/Cleaned_Data/2024 of this repo) to your local 'Horizons/1.Data/Cleaned_Data/2024' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
+  
+B) Found in 1.Data/Cleaned_Data/2024 of this repo -> save to your local 'Horizons/1.Data/Cleaned_Data/2024' folder:
 * RC_SQSS_Clean.csv
 * RC_Graduation_Clean.csv
 * Horizon_Graduates.csv
+
+C) Found in 1.Data/Raw_Data/2025_Exports of this repo -> save to your local 'Horizons/1.Data/Raw_Data/2025' folder
+* FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx
   
-3. Download raw data for 2025 (& additional years as needed), as noted in the script.
+3. Download raw data for 2025 (& additional years as needed), as noted in the script and save to your local 'Horizons/1.Data/Raw_Data/2025' folder.
    
-4. Save the raw data to *1.Data/Raw_Data/2025_Exports* (& additional years as needed).
+5. Save the raw data to *1.Data/Raw_Data/2025_Exports* (& additional years as needed).
    
 6. Update the current year in the script. Update the base directory in the script to match yours. *If needing to run multiple years (2025, + 2026, etc) use the script to run one year at a time to properly build prior year data sets.*
    
@@ -61,7 +67,7 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
-8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!   #DRAFT - DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
+8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!   #DRAFT - DASHBOARD & DASHBOARD FILES WILL BE UPLOADED TO REPO EARLY AUGUST
 
 
 # Learn more:
