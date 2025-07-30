@@ -29,37 +29,39 @@ https://github.com/WashingtonSTEM/Horizons_Public
 #### The script notes action items where relevant. At the start of the script, you will need to set the current year and base directory. 
 
 ### 1.Data Folder:
-Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory to easily run the script. The script notes download links for raw data.
+Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory in a parent folder named Horizons to easily run the script. The script notes download links for raw data.
 
 ### General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. 
 #### For any questions, please email impact@washingtonstem.org
 1. Create the following folders in a local directory you would like to read and write data to. Add folders for additional years as relevant.
-* 1.Data/Raw_Data/2025_Exports
-* 1.Data/Cleaned_Data/2024
-* 1.Data/Cleaned_Data/2025
-* 1.Data/Dashboard_Files
-* 1.Data/Crosswalks
+* Horizons/1.Data/Raw_Data/2025_Exports
+* Horizons/1.Data/Cleaned_Data/2024
+* Horizons/1.Data/Cleaned_Data/2025
+* Horizons/1.Data/Dashboard_Files
     #DRAFT - FILES AND DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
-2. Save the below files (found in the base of the Cleaned_Data folder of this repo) to your local '1.Data/Cleaned_Data/' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
+2. Save the below files (found in the base of the Cleaned_Data folder of this repo) to your local 'Horizons/1.Data/Cleaned_Data/' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
 * 2023_IPEDS_long.csv
 * FAFSA 10yrs.csv
 * Sankey Template. xlsx
-* Report_Card_Graduation_2014-15_to_2022-2023.csv
-* RC_SQSS.csv (in raw2024)
-
-3. Download raw data, as noted in the script.
+* Regional_Analysis_Crosswalk.xlsx
+  Save these files (found in 1.Data/Cleaned_Data/2024 of this repo) to your local 'Horizons/1.Data/Cleaned_Data/2024' folder. These datasets contain prepped historical data, not available in this format in their raw, public form.
+* RC_SQSS_Clean.csv
+* RC_Graduation_Clean.csv
+* Horizon_Graduates.csv
+  
+3. Download raw data for 2025 (& additional years as needed), as noted in the script.
    
-4. Save the raw data to *1.Data/Raw_Data/2025_Exports* (or current year if past 2025).
+4. Save the raw data to *1.Data/Raw_Data/2025_Exports* (& additional years as needed).
    
-5. Update the current year in the script. Update the base directory in the script to match yours.
+6. Update the current year in the script. Update the base directory in the script to match yours. *If needing to run multiple years (2025, + 2026, etc) use the script to run one year at a time to properly build prior year data sets.*
    
-6. Make needed updates to the script, noted throughout the script as "Action Items". Run start to finish. See console notes and *Review Step* at the end of the script for quality check. As needed, make changes and rerun script.
+7. Make needed updates to the script, noted throughout the script as "Action Items". Run start to finish. See console notes and *Review Step* at the end of the script for quality check. As needed, make changes and rerun script.
    ## Potential updates needed, noted as "Action items":
    * Review the *Check for changed column names and update as needed, then run remainder of script* ouptut and add code to need rename columns immeditaly after reading in new file to ensure script works properly.
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
-7. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!
+8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Save your own version of the workbook!   #DRAFT - DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
 
 
 # Learn more:
