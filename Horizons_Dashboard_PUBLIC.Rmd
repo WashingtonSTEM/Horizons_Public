@@ -23,13 +23,11 @@ library(here)
 ```
 # **ACTION ITEM**:*Update currentyear parameter (current year of newly exported data) and set base_dir to match the folder you want to read and write to.*
 ```{r}
-# **ACTION ITEM**: Update currentyear
+# **ACTION ITEM**: Update currentyear as needed
 currentyear <- 2025
 
 # **ACTION ITEM**: Update to match your setup. For example, base_dir <- "path/to/your/folder/"
-## Rachel's C:/Users/RachelTavolacci/Box/Impact/
-## Poppe's C:/Users/MikelPoppe/Box Sync/Impact/
-base_dir <- "C:/Users/RachelTavolacci/Box/Impact/"
+base_dir <- " / /"
 
 # Define file paths dynamically
 output_dir <- file.path(base_dir, "Horizons", "1.Data", "Cleaned_Data", paste0(currentyear))
@@ -241,15 +239,15 @@ join_to_hrp <- function(df,
 ```
 # Load Crosswalks
 ```{r}
-Crosswalk_FAFSA <- read.xlsx(file.path(base_dir,"Data (Self-Service)/Crosswalks/Regional_Analysis_Crosswalk.xlsx"),sheet="School District Names") 
+Crosswalk_FAFSA <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="School District Names") 
 ## Clean duplicated column names
 Crosswalk_FAFSA <- Crosswalk_FAFSA[, !duplicated(names(Crosswalk_FAFSA))]
 Crosswalk_FAFSA <- fix_district_code(Crosswalk_FAFSA, column_name = "District.Code")
 
-Crosswalk_PS <- read.xlsx(file.path(base_dir,"Data (Self-Service)/Crosswalks/Regional_Analysis_Crosswalk.xlsx"),sheet="Horizon") %>% select(District.Code, SchoolCode, ERDC.SchoolTTL, ERDC.DistrictTTL, Horizons.Partner) %>% drop_na(Horizons.Partner) %>% distinct() 
+Crosswalk_PS <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="Horizon") %>% select(District.Code, SchoolCode, ERDC.SchoolTTL, ERDC.DistrictTTL, Horizons.Partner) %>% drop_na(Horizons.Partner) %>% distinct() 
 Crosswalk_PS <- fix_district_code(Crosswalk_PS, column_name = "District.Code") 
 
-Crosswalk_PS_Demo <- read.xlsx(file.path(base_dir,"Data (Self-Service)/Crosswalks/Regional_Analysis_Crosswalk.xlsx"),sheet="PS_Region") %>%
+Crosswalk_PS_Demo <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="PS_Region") %>%
   distinct(INST_IPEDS,`ERDC`,Horizon) %>%
   filter(!is.na(`Horizon`)) %>%
   mutate(`ERDC`=if_else(nchar(`ERDC`)<4,toupper(`ERDC`),str_to_title(`ERDC`)))
