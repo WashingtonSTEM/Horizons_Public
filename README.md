@@ -41,19 +41,19 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
   
 2. These datasets contain prepped historical data, not available in this format in their raw, public form. Save them to your local folders.
 
-A) Found in the base of the Cleaned_Data folder of this repo -> save to to your local 'Horizons/1.Data/Cleaned_Data/' folder:
-* 2023_IPEDS_long.csv
-* FAFSA 10yrs.csv
-* Sankey Template. xlsx
-* Regional_Analysis_Crosswalk.xlsx
+    A) Found in the base of the Cleaned_Data folder of this repo -> save to to your local 'Horizons/1.Data/Cleaned_Data/' folder:
+    * 2023_IPEDS_long.csv
+    * FAFSA 10yrs.csv
+    * Sankey Template. xlsx
+    * Regional_Analysis_Crosswalk.xlsx
   
-B) Found in 1.Data/Cleaned_Data/2024 of this repo -> save to your local 'Horizons/1.Data/Cleaned_Data/2024' folder:
-* RC_SQSS_Clean.csv
-* RC_Graduation_Clean.csv
-* Horizon_Graduates.csv
+    B) Found in 1.Data/Cleaned_Data/2024 of this repo -> save to your local 'Horizons/1.Data/Cleaned_Data/2024' folder:
+    * RC_SQSS_Clean.csv
+    * RC_Graduation_Clean.csv
+    * Horizon_Graduates.csv
 
-C) Found in 1.Data/Raw_Data/2025_Exports of this repo -> save to your local 'Horizons/1.Data/Raw_Data/2025' folder
-* FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx
+    C) Found in 1.Data/Raw_Data/2025_Exports of this repo -> save to your local 'Horizons/1.Data/Raw_Data/2025' folder
+    * FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx
   
 3. Download raw data for 2025 (& additional years as needed), as noted in the script and save to your local 'Horizons/1.Data/Raw_Data/2025' folder.
    
