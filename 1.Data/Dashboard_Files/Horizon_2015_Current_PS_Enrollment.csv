@@ -1,0 +1,853 @@
+DistrictCode|DistrictName|FinalCohort|Graduate|GraduationRate|CohortYearTTL|Horizons.Partner|PSEnrollLevel|Pct|Cohort Enrollment Rate
+18303|Bainbridge Island School District|327|317|0.96941896|2023|West Sound STEM|2 Year / CTC|0.1|0.096941896
+18303|Bainbridge Island School District|327|317|0.96941896|2023|West Sound STEM|4 Year|0.64|0.6204281344
+18303|Bainbridge Island School District|327|317|0.96941896|2023|West Sound STEM|Not Enrolled|0.26|0.2826299696
+05401|Cape Flattery School District|28|24.08|0.86|2023|West Sound STEM|2 Year / CTC|0.48|0.4128
+05401|Cape Flattery School District|28|24.08|0.86|2023|West Sound STEM|4 Year|0.28|0.2408
+05401|Cape Flattery School District|28|24.08|0.86|2023|West Sound STEM|Not Enrolled|0.24|0.3464
+08401|Castle Rock School District|104|80.6|0.775|2023|ESD 112|2 Year / CTC|0.23|0.17825
+08401|Castle Rock School District|104|80.6|0.775|2023|ESD 112|4 Year|0.19|0.14725
+08401|Castle Rock School District|104|80.6|0.775|2023|ESD 112|Not Enrolled|0.58|0.6745
+18401|Central Kitsap School District|1040|903|0.868269231|2023|West Sound STEM|2 Year / CTC|0.29|0.25179807699
+18401|Central Kitsap School District|1040|903|0.868269231|2023|West Sound STEM|4 Year|0.24|0.20838461544
+18401|Central Kitsap School District|1040|903|0.868269231|2023|West Sound STEM|Not Enrolled|0.47|0.53981730757
+36250|College Place School District|131|126.284|0.964|2023|United Way of the Blue Mountains|2 Year / CTC|0.34|0.32776
+36250|College Place School District|131|126.284|0.964|2023|United Way of the Blue Mountains|4 Year|0.21|0.20244
+36250|College Place School District|131|126.284|0.964|2023|United Way of the Blue Mountains|Not Enrolled|0.45|0.4698
+05313|Crescent School District|18|||2023|West Sound STEM|2 Year / CTC|0.38|
+05313|Crescent School District|18|||2023|West Sound STEM|4 Year|0.1|
+05313|Crescent School District|18|||2023|West Sound STEM|Not Enrolled|0.52|
+07002|Dayton School District|30|25.5|0.85|2023|United Way of the Blue Mountains|2 Year / CTC|0.2|0.17
+07002|Dayton School District|30|25.5|0.85|2023|United Way of the Blue Mountains|4 Year|0.26|0.221
+07002|Dayton School District|30|25.5|0.85|2023|United Way of the Blue Mountains|Not Enrolled|0.54|0.609
+17210|Federal Way School District|1552|1374|0.885309278|2023|Puget Sound ESD|2 Year / CTC|0.22|0.19476804116
+17210|Federal Way School District|1552|1374|0.885309278|2023|Puget Sound ESD|4 Year|0.3|0.2655927834
+17210|Federal Way School District|1552|1374|0.885309278|2023|Puget Sound ESD|Not Enrolled|0.48|0.53963917544
+17401|Highline School District|1351|1183|0.875647668|2023|Puget Sound ESD|2 Year / CTC|0.23|0.20139896364
+17401|Highline School District|1351|1183|0.875647668|2023|Puget Sound ESD|4 Year|0.28|0.24518134704
+17401|Highline School District|1351|1183|0.875647668|2023|Puget Sound ESD|Not Enrolled|0.49|0.55341968932
+06098|Hockinson School District|171|167.751|0.981|2023|ESD 112|2 Year / CTC|0.18|0.17658
+06098|Hockinson School District|171|167.751|0.981|2023|ESD 112|4 Year|0.33|0.32373
+06098|Hockinson School District|171|167.751|0.981|2023|ESD 112|Not Enrolled|0.49|0.49969
+08402|Kalama School District|88|75.68|0.86|2023|ESD 112|2 Year / CTC|0.29|0.2494
+08402|Kalama School District|88|75.68|0.86|2023|ESD 112|4 Year|0.3|0.258
+08402|Kalama School District|88|75.68|0.86|2023|ESD 112|Not Enrolled|0.41|0.4926
+20406|Lyle School District|15|12.75|0.85|2023|ESD 112|2 Year / CTC|0.025|0.02125
+20406|Lyle School District|15|12.75|0.85|2023|ESD 112|4 Year|0.27|0.2295
+20406|Lyle School District|15|12.75|0.85|2023|ESD 112|Not Enrolled|0.67|0.7195
+25155|Naselle-Grays River Valley School District|25|21.875|0.875|2023|ESD 112|2 Year / CTC|0.32|0.28
+25155|Naselle-Grays River Valley School District|25|21.875|0.875|2023|ESD 112|4 Year|0.25|0.21875
+25155|Naselle-Grays River Valley School District|25|21.875|0.875|2023|ESD 112|Not Enrolled|0.43|0.50125
+18400|North Kitsap School District|437|391|0.894736842|2023|West Sound STEM|2 Year / CTC|0.22|0.19684210524
+18400|North Kitsap School District|437|391|0.894736842|2023|West Sound STEM|4 Year|0.38|0.33999999996
+18400|North Kitsap School District|437|391|0.894736842|2023|West Sound STEM|Not Enrolled|0.41|0.47210526322
+23403|North Mason School District|221|183|0.828054299|2023|West Sound STEM|2 Year / CTC|0.24|0.19873303176
+23403|North Mason School District|221|183|0.828054299|2023|West Sound STEM|4 Year|0.16|0.13248868784
+23403|North Mason School District|221|183|0.828054299|2023|West Sound STEM|Not Enrolled|0.6|0.6687782804
+25101|Ocean Beach School District|92|80.96|0.88|2023|ESD 112|2 Year / CTC|0.29|0.2552
+25101|Ocean Beach School District|92|80.96|0.88|2023|ESD 112|4 Year|0.25|0.22
+25101|Ocean Beach School District|92|80.96|0.88|2023|ESD 112|Not Enrolled|0.46|0.5248
+05121|Port Angeles School District|272|228|0.838235294|2023|West Sound STEM|2 Year / CTC|0.28|0.23470588232
+05121|Port Angeles School District|272|228|0.838235294|2023|West Sound STEM|4 Year|0.22|0.18441176468
+05121|Port Angeles School District|272|228|0.838235294|2023|West Sound STEM|Not Enrolled|0.5|0.580882353
+16050|Port Townsend School District|117|100.269|0.857|2023|West Sound STEM|2 Year / CTC|0.12|0.10284
+16050|Port Townsend School District|117|100.269|0.857|2023|West Sound STEM|4 Year|0.32|0.27424
+16050|Port Townsend School District|117|100.269|0.857|2023|West Sound STEM|Not Enrolled|0.56|0.62292
+16048|Quilcene School District|22|19.25|0.875|2023|West Sound STEM|2 Year / CTC|0.1|0.0875
+16048|Quilcene School District|22|19.25|0.875|2023|West Sound STEM|4 Year|0.23|0.20125
+16048|Quilcene School District|22|19.25|0.875|2023|West Sound STEM|Not Enrolled|0.67|0.71125
+05323|Sequim School District|216|181.224|0.839|2023|West Sound STEM|2 Year / CTC|0.25|0.20975
+05323|Sequim School District|216|181.224|0.839|2023|West Sound STEM|4 Year|0.24|0.20136
+05323|Sequim School District|216|181.224|0.839|2023|West Sound STEM|Not Enrolled|0.51|0.58889
+18402|South Kitsap School District|651|562|0.86328725|2023|West Sound STEM|2 Year / CTC|0.24|0.20718894
+18402|South Kitsap School District|651|562|0.86328725|2023|West Sound STEM|4 Year|0.2|0.17265745
+18402|South Kitsap School District|651|562|0.86328725|2023|West Sound STEM|Not Enrolled|0.56|0.62015361
+30303|Stevenson-Carson School District|60|47.4|0.79|2023|ESD 112|2 Year / CTC|0.14|0.1106
+30303|Stevenson-Carson School District|60|47.4|0.79|2023|ESD 112|4 Year|0.4|0.316
+30303|Stevenson-Carson School District|60|47.4|0.79|2023|ESD 112|Not Enrolled|0.47|0.5813
+20400|Trout Lake School District|18|13.842|0.769|2023|ESD 112|2 Year / CTC|0.025|0.019225
+20400|Trout Lake School District|18|13.842|0.769|2023|ESD 112|4 Year|0.52|0.39988
+20400|Trout Lake School District|18|13.842|0.769|2023|ESD 112|Not Enrolled|0.47|0.59243
+17406|Tukwila School District|209|181|0.866028708|2023|Puget Sound ESD|2 Year / CTC|0.3|0.2598086124
+17406|Tukwila School District|209|181|0.866028708|2023|Puget Sound ESD|4 Year|0.32|0.27712918656
+17406|Tukwila School District|209|181|0.866028708|2023|Puget Sound ESD|Not Enrolled|0.39|0.47172248812
+35200|Wahkiakum School District|44|41.008|0.932|2023|ESD 112|2 Year / CTC|0.14|0.13048
+35200|Wahkiakum School District|44|41.008|0.932|2023|ESD 112|4 Year|0.16|0.14912
+35200|Wahkiakum School District|44|41.008|0.932|2023|ESD 112|Not Enrolled|0.7|0.7204
+36140|Walla Walla Public Schools|427|412|0.964871194|2023|United Way of the Blue Mountains|2 Year / CTC|0.31|0.29911007014
+36140|Walla Walla Public Schools|427|412|0.964871194|2023|United Way of the Blue Mountains|4 Year|0.28|0.27016393432
+36140|Walla Walla Public Schools|427|412|0.964871194|2023|United Way of the Blue Mountains|Not Enrolled|0.41|0.43072599554
+20405|White Salmon Valley School District|89|75.65|0.85|2023|ESD 112|2 Year / CTC|0.13|0.1105
+20405|White Salmon Valley School District|89|75.65|0.85|2023|ESD 112|4 Year|0.26|0.221
+20405|White Salmon Valley School District|89|75.65|0.85|2023|ESD 112|Not Enrolled|0.61|0.6685
+05402|Quillayute Valley School District|0|0||2023|West Sound STEM|2 Year / CTC|0.38|
+05402|Quillayute Valley School District|0|0||2023|West Sound STEM|4 Year|0.08|
+05402|Quillayute Valley School District|0|0||2023|West Sound STEM|Not Enrolled|0.53|
+18303|Bainbridge Island School District|393|375.315|0.955|2020|West Sound STEM|2 Year / CTC|0.13|0.12415
+18303|Bainbridge Island School District|393|375.315|0.955|2020|West Sound STEM|4 Year|0.66|0.6303
+18303|Bainbridge Island School District|393|375.315|0.955|2020|West Sound STEM|Not Enrolled|0.21|0.24555
+18303|Bainbridge Island School District|377|361.92|0.96|2019|West Sound STEM|2 Year / CTC|0.09|0.0864
+18303|Bainbridge Island School District|377|361.92|0.96|2019|West Sound STEM|4 Year|0.69|0.6624
+18303|Bainbridge Island School District|377|361.92|0.96|2019|West Sound STEM|Not Enrolled|0.22|0.2512
+18303|Bainbridge Island School District|364|346|0.950549451|2018|West Sound STEM|2 Year / CTC|0.12|0.11406593412
+18303|Bainbridge Island School District|364|346|0.950549451|2018|West Sound STEM|4 Year|0.67|0.63686813217
+18303|Bainbridge Island School District|364|346|0.950549451|2018|West Sound STEM|Not Enrolled|0.21|0.24906593371
+18303|Bainbridge Island School District|343|326|0.950437318|2017|West Sound STEM|2 Year / CTC|0.1|0.0950437318
+18303|Bainbridge Island School District|343|326|0.950437318|2017|West Sound STEM|4 Year|0.64|0.60827988352
+18303|Bainbridge Island School District|343|326|0.950437318|2017|West Sound STEM|Not Enrolled|0.26|0.29667638468
+18303|Bainbridge Island School District|348|333|0.956896552|2016|West Sound STEM|2 Year / CTC|0.15|0.1435344828
+18303|Bainbridge Island School District|348|333|0.956896552|2016|West Sound STEM|4 Year|0.63|0.60284482776
+18303|Bainbridge Island School District|348|333|0.956896552|2016|West Sound STEM|Not Enrolled|0.22|0.25362068944
+18303|Bainbridge Island School District|350|336|0.96|2015|West Sound STEM|2 Year / CTC|0.12|0.1152
+18303|Bainbridge Island School District|350|336|0.96|2015|West Sound STEM|4 Year|0.67|0.6432
+18303|Bainbridge Island School District|350|336|0.96|2015|West Sound STEM|Not Enrolled|0.21|0.2416
+18303|Bainbridge Island School District|348|331.992|0.954|2014|West Sound STEM|2 Year / CTC|0.09|0.08586
+18303|Bainbridge Island School District|348|331.992|0.954|2014|West Sound STEM|4 Year|0.74|0.70596
+18303|Bainbridge Island School District|348|331.992|0.954|2014|West Sound STEM|Not Enrolled|0.17|0.20818
+05401|Cape Flattery School District|44|38.72|0.88|2020|West Sound STEM|2 Year / CTC|0.2|0.176
+05401|Cape Flattery School District|44|38.72|0.88|2020|West Sound STEM|4 Year|0.2|0.176
+05401|Cape Flattery School District|44|38.72|0.88|2020|West Sound STEM|Not Enrolled|0.6|0.648
+05401|Cape Flattery School District|27|24.462|0.906|2019|West Sound STEM|2 Year / CTC|0.23|0.20838
+05401|Cape Flattery School District|27|24.462|0.906|2019|West Sound STEM|4 Year|0.23|0.20838
+05401|Cape Flattery School District|27|24.462|0.906|2019|West Sound STEM|Not Enrolled|0.55|0.5923
+05401|Cape Flattery School District|33|29.7|0.9|2018|West Sound STEM|2 Year / CTC|0.33|0.297
+05401|Cape Flattery School District|33|29.7|0.9|2018|West Sound STEM|4 Year|0.19|0.171
+05401|Cape Flattery School District|33|29.7|0.9|2018|West Sound STEM|Not Enrolled|0.47|0.523
+05401|Cape Flattery School District|38|34.998|0.921|2017|West Sound STEM|2 Year / CTC|0.4|0.3684
+05401|Cape Flattery School District|38|34.998|0.921|2017|West Sound STEM|4 Year|0.31|0.28551
+05401|Cape Flattery School District|38|34.998|0.921|2017|West Sound STEM|Not Enrolled|0.29|0.34609
+05401|Cape Flattery School District|35|32.095|0.917|2016|West Sound STEM|2 Year / CTC|0.26|0.23842
+05401|Cape Flattery School District|35|32.095|0.917|2016|West Sound STEM|4 Year|0.16|0.14672
+05401|Cape Flattery School District|35|32.095|0.917|2016|West Sound STEM|Not Enrolled|0.58|0.61486
+05401|Cape Flattery School District|36|32.76|0.91|2015|West Sound STEM|2 Year / CTC|0.34|0.3094
+05401|Cape Flattery School District|36|32.76|0.91|2015|West Sound STEM|4 Year|0.17|0.1547
+05401|Cape Flattery School District|36|32.76|0.91|2015|West Sound STEM|Not Enrolled|0.49|0.5359
+05401|Cape Flattery School District|41|34.85|0.85|2014|West Sound STEM|2 Year / CTC|0.36|0.306
+05401|Cape Flattery School District|41|34.85|0.85|2014|West Sound STEM|4 Year|0.15|0.1275
+05401|Cape Flattery School District|41|34.85|0.85|2014|West Sound STEM|Not Enrolled|0.48|0.558
+08401|Castle Rock School District|109|97.228|0.892|2020|ESD 112|2 Year / CTC|0.23|0.20516
+08401|Castle Rock School District|109|97.228|0.892|2020|ESD 112|4 Year|0.14|0.12488
+08401|Castle Rock School District|109|97.228|0.892|2020|ESD 112|Not Enrolled|0.63|0.66996
+08401|Castle Rock School District|132|118.272|0.896|2019|ESD 112|2 Year / CTC|0.33|0.29568
+08401|Castle Rock School District|132|118.272|0.896|2019|ESD 112|4 Year|0.09|0.08064
+08401|Castle Rock School District|132|118.272|0.896|2019|ESD 112|Not Enrolled|0.58|0.62368
+08401|Castle Rock School District|111|92|0.828828829|2018|ESD 112|2 Year / CTC|0.28|0.23207207212
+08401|Castle Rock School District|111|92|0.828828829|2018|ESD 112|4 Year|0.16|0.13261261264
+08401|Castle Rock School District|111|92|0.828828829|2018|ESD 112|Not Enrolled|0.56|0.63531531524
+08401|Castle Rock School District|102|83|0.81372549|2017|ESD 112|2 Year / CTC|0.34|0.2766666666
+08401|Castle Rock School District|102|83|0.81372549|2017|ESD 112|4 Year|0.16|0.1301960784
+08401|Castle Rock School District|102|83|0.81372549|2017|ESD 112|Not Enrolled|0.51|0.6012745099
+08401|Castle Rock School District|87|66|0.75862069|2016|ESD 112|2 Year / CTC|0.32|0.2427586208
+08401|Castle Rock School District|87|66|0.75862069|2016|ESD 112|4 Year|0.025|0.01896551725
+08401|Castle Rock School District|87|66|0.75862069|2016|ESD 112|Not Enrolled|0.67|0.7496551723
+08401|Castle Rock School District|109|93|0.853211009|2015|ESD 112|2 Year / CTC|0.3|0.2559633027
+08401|Castle Rock School District|109|93|0.853211009|2015|ESD 112|4 Year|0.22|0.18770642198
+08401|Castle Rock School District|109|93|0.853211009|2015|ESD 112|Not Enrolled|0.48|0.55633027532
+08401|Castle Rock School District|114|87|0.763157895|2014|ESD 112|2 Year / CTC|0.22|0.1678947369
+08401|Castle Rock School District|114|87|0.763157895|2014|ESD 112|4 Year|0.2|0.152631579
+08401|Castle Rock School District|114|87|0.763157895|2014|ESD 112|Not Enrolled|0.58|0.6794736841
+18401|Central Kitsap School District|903|832|0.9213732|2020|West Sound STEM|2 Year / CTC|0.23|0.211915836
+18401|Central Kitsap School District|903|832|0.9213732|2020|West Sound STEM|4 Year|0.27|0.248770764
+18401|Central Kitsap School District|903|832|0.9213732|2020|West Sound STEM|Not Enrolled|0.5|0.5393134
+18401|Central Kitsap School District|848|779|0.918632075|2019|West Sound STEM|2 Year / CTC|0.31|0.28477594325
+18401|Central Kitsap School District|848|779|0.918632075|2019|West Sound STEM|4 Year|0.32|0.293962264
+18401|Central Kitsap School District|848|779|0.918632075|2019|West Sound STEM|Not Enrolled|0.38|0.4304481135
+18401|Central Kitsap School District|846|783|0.925531915|2018|West Sound STEM|2 Year / CTC|0.34|0.3146808511
+18401|Central Kitsap School District|846|783|0.925531915|2018|West Sound STEM|4 Year|0.29|0.26840425535
+18401|Central Kitsap School District|846|783|0.925531915|2018|West Sound STEM|Not Enrolled|0.36|0.4076595744
+18401|Central Kitsap School District|847|763|0.900826446|2017|West Sound STEM|2 Year / CTC|0.31|0.27925619826
+18401|Central Kitsap School District|847|763|0.900826446|2017|West Sound STEM|4 Year|0.26|0.23421487596
+18401|Central Kitsap School District|847|763|0.900826446|2017|West Sound STEM|Not Enrolled|0.42|0.47752066132
+18401|Central Kitsap School District|871|771|0.885189437|2016|West Sound STEM|2 Year / CTC|0.34|0.30096440858
+18401|Central Kitsap School District|871|771|0.885189437|2016|West Sound STEM|4 Year|0.26|0.23014925362
+18401|Central Kitsap School District|871|771|0.885189437|2016|West Sound STEM|Not Enrolled|0.4|0.4688863378
+18401|Central Kitsap School District|904|823|0.91039823|2015|West Sound STEM|2 Year / CTC|0.33|0.3004314159
+18401|Central Kitsap School District|904|823|0.91039823|2015|West Sound STEM|4 Year|0.27|0.2458075221
+18401|Central Kitsap School District|904|823|0.91039823|2015|West Sound STEM|Not Enrolled|0.39|0.4446570797
+18401|Central Kitsap School District|956|832|0.870292887|2014|West Sound STEM|2 Year / CTC|0.34|0.29589958158
+18401|Central Kitsap School District|956|832|0.870292887|2014|West Sound STEM|4 Year|0.26|0.22627615062
+18401|Central Kitsap School District|956|832|0.870292887|2014|West Sound STEM|Not Enrolled|0.4|0.4778242678
+36250|College Place School District|138|133.17|0.965|2020|United Way of the Blue Mountains|2 Year / CTC|0.32|0.3088
+36250|College Place School District|138|133.17|0.965|2020|United Way of the Blue Mountains|4 Year|0.19|0.18335
+36250|College Place School District|138|133.17|0.965|2020|United Way of the Blue Mountains|Not Enrolled|0.49|0.50785
+36250|College Place School District|141|133.95|0.95|2019|United Way of the Blue Mountains|2 Year / CTC|0.53|0.5035
+36250|College Place School District|141|133.95|0.95|2019|United Way of the Blue Mountains|4 Year|0.19|0.1805
+36250|College Place School District|141|133.95|0.95|2019|United Way of the Blue Mountains|Not Enrolled|0.28|0.316
+36250|College Place School District|95|90.25|0.95|2018|United Way of the Blue Mountains|2 Year / CTC|0.41|0.3895
+36250|College Place School District|95|90.25|0.95|2018|United Way of the Blue Mountains|4 Year|0.23|0.2185
+36250|College Place School District|95|90.25|0.95|2018|United Way of the Blue Mountains|Not Enrolled|0.36|0.392
+05313|Crescent School District|14|11.998|0.857|2020|West Sound STEM|2 Year / CTC|0.37|0.31709
+05313|Crescent School District|14|11.998|0.857|2020|West Sound STEM|4 Year|0.14|0.11998
+05313|Crescent School District|14|11.998|0.857|2020|West Sound STEM|Not Enrolled|0.49|0.56293
+05313|Crescent School District|21|17.493|0.833|2019|West Sound STEM|2 Year / CTC|0.42|0.34986
+05313|Crescent School District|21|17.493|0.833|2019|West Sound STEM|4 Year|0.13|0.10829
+05313|Crescent School District|21|17.493|0.833|2019|West Sound STEM|Not Enrolled|0.44|0.53352
+05313|Crescent School District|15|12.495|0.833|2018|West Sound STEM|2 Year / CTC|0.45|0.37485
+05313|Crescent School District|15|12.495|0.833|2018|West Sound STEM|4 Year|0.13|0.10829
+05313|Crescent School District|15|12.495|0.833|2018|West Sound STEM|Not Enrolled|0.42|0.51686
+05313|Crescent School District|19|15.447|0.813|2017|West Sound STEM|2 Year / CTC|0.35|0.28455
+05313|Crescent School District|19|15.447|0.813|2017|West Sound STEM|4 Year|0.16|0.13008
+05313|Crescent School District|19|15.447|0.813|2017|West Sound STEM|Not Enrolled|0.49|0.58537
+05313|Crescent School District|15|9.15|0.61|2016|West Sound STEM|2 Year / CTC|0.3|0.183
+05313|Crescent School District|15|9.15|0.61|2016|West Sound STEM|4 Year|0.23|0.1403
+05313|Crescent School District|15|9.15|0.61|2016|West Sound STEM|Not Enrolled|0.47|0.6767
+05313|Crescent School District|13|11.05|0.85|2015|West Sound STEM|2 Year / CTC|0.37|0.3145
+05313|Crescent School District|13|11.05|0.85|2015|West Sound STEM|4 Year|0.2|0.17
+05313|Crescent School District|13|11.05|0.85|2015|West Sound STEM|Not Enrolled|0.43|0.5155
+05313|Crescent School District|18|14.634|0.813|2014|West Sound STEM|2 Year / CTC|0.49|0.39837
+05313|Crescent School District|18|14.634|0.813|2014|West Sound STEM|4 Year|0.12|0.09756
+05313|Crescent School District|18|14.634|0.813|2014|West Sound STEM|Not Enrolled|0.39|0.50407
+07002|Dayton School District|42|31.92|0.76|2020|United Way of the Blue Mountains|2 Year / CTC|0.39|0.2964
+07002|Dayton School District|42|31.92|0.76|2020|United Way of the Blue Mountains|4 Year|0.29|0.2204
+07002|Dayton School District|42|31.92|0.76|2020|United Way of the Blue Mountains|Not Enrolled|0.32|0.4832
+07002|Dayton School District|28|24.64|0.88|2019|United Way of the Blue Mountains|2 Year / CTC|0.4|0.352
+07002|Dayton School District|28|24.64|0.88|2019|United Way of the Blue Mountains|4 Year|0.27|0.2376
+07002|Dayton School District|28|24.64|0.88|2019|United Way of the Blue Mountains|Not Enrolled|0.33|0.4104
+07002|Dayton School District|27|20|0.740740741|2018|United Way of the Blue Mountains|2 Year / CTC|0.37|0.27407407417
+07002|Dayton School District|27|20|0.740740741|2018|United Way of the Blue Mountains|4 Year|0.25|0.18518518525
+07002|Dayton School District|27|20|0.740740741|2018|United Way of the Blue Mountains|Not Enrolled|0.38|0.54074074058
+07002|Dayton School District|30|26.4|0.88|2017|United Way of the Blue Mountains|2 Year / CTC|0.31|0.2728
+07002|Dayton School District|30|26.4|0.88|2017|United Way of the Blue Mountains|4 Year|0.28|0.2464
+07002|Dayton School District|30|26.4|0.88|2017|United Way of the Blue Mountains|Not Enrolled|0.41|0.4808
+07002|Dayton School District|41|36.08|0.88|2016|United Way of the Blue Mountains|2 Year / CTC|0.35|0.308
+07002|Dayton School District|41|36.08|0.88|2016|United Way of the Blue Mountains|4 Year|0.26|0.2288
+07002|Dayton School District|41|36.08|0.88|2016|United Way of the Blue Mountains|Not Enrolled|0.39|0.4632
+07002|Dayton School District|29|26.651|0.919|2015|United Way of the Blue Mountains|2 Year / CTC|0.37|0.34003
+07002|Dayton School District|29|26.651|0.919|2015|United Way of the Blue Mountains|4 Year|0.26|0.23894
+07002|Dayton School District|29|26.651|0.919|2015|United Way of the Blue Mountains|Not Enrolled|0.37|0.42103
+07002|Dayton School District|41|36.9|0.9|2014|United Way of the Blue Mountains|2 Year / CTC|0.54|0.486
+07002|Dayton School District|41|36.9|0.9|2014|United Way of the Blue Mountains|4 Year|0.19|0.171
+07002|Dayton School District|41|36.9|0.9|2014|United Way of the Blue Mountains|Not Enrolled|0.27|0.343
+17210|Federal Way School District|1647|1429|0.86763813|2020|Puget Sound ESD|2 Year / CTC|0.22|0.1908803886
+17210|Federal Way School District|1647|1429|0.86763813|2020|Puget Sound ESD|4 Year|0.3|0.260291439
+17210|Federal Way School District|1647|1429|0.86763813|2020|Puget Sound ESD|Not Enrolled|0.48|0.5488281724
+17210|Federal Way School District|1601|1416|0.88444722|2019|Puget Sound ESD|2 Year / CTC|0.27|0.2388007494
+17210|Federal Way School District|1601|1416|0.88444722|2019|Puget Sound ESD|4 Year|0.31|0.2741786382
+17210|Federal Way School District|1601|1416|0.88444722|2019|Puget Sound ESD|Not Enrolled|0.42|0.4870206124
+17210|Federal Way School District|1545|1363|0.882200647|2018|Puget Sound ESD|2 Year / CTC|0.26|0.22937216822
+17210|Federal Way School District|1545|1363|0.882200647|2018|Puget Sound ESD|4 Year|0.33|0.29112621351
+17210|Federal Way School District|1545|1363|0.882200647|2018|Puget Sound ESD|Not Enrolled|0.41|0.47950161827
+17210|Federal Way School District|1626|1415|0.870233702|2017|Puget Sound ESD|2 Year / CTC|0.25|0.2175584255
+17210|Federal Way School District|1626|1415|0.870233702|2017|Puget Sound ESD|4 Year|0.36|0.31328413272
+17210|Federal Way School District|1626|1415|0.870233702|2017|Puget Sound ESD|Not Enrolled|0.39|0.46915744178
+17210|Federal Way School District|1635|1402|0.857492355|2016|Puget Sound ESD|2 Year / CTC|0.26|0.2229480123
+17210|Federal Way School District|1635|1402|0.857492355|2016|Puget Sound ESD|4 Year|0.38|0.3258470949
+17210|Federal Way School District|1635|1402|0.857492355|2016|Puget Sound ESD|Not Enrolled|0.36|0.4512048928
+17210|Federal Way School District|1626|1348|0.82902829|2015|Puget Sound ESD|2 Year / CTC|0.27|0.2238376383
+17210|Federal Way School District|1626|1348|0.82902829|2015|Puget Sound ESD|4 Year|0.36|0.2984501844
+17210|Federal Way School District|1626|1348|0.82902829|2015|Puget Sound ESD|Not Enrolled|0.37|0.4777121773
+17210|Federal Way School District|1650|1347|0.816363636|2014|Puget Sound ESD|2 Year / CTC|0.25|0.204090909
+17210|Federal Way School District|1650|1347|0.816363636|2014|Puget Sound ESD|4 Year|0.33|0.26939999988
+17210|Federal Way School District|1650|1347|0.816363636|2014|Puget Sound ESD|Not Enrolled|0.42|0.52650909112
+17401|Highline School District|1359|1193|0.877851361|2020|Puget Sound ESD|2 Year / CTC|0.26|0.22824135386
+17401|Highline School District|1359|1193|0.877851361|2020|Puget Sound ESD|4 Year|0.27|0.23701986747
+17401|Highline School District|1359|1193|0.877851361|2020|Puget Sound ESD|Not Enrolled|0.47|0.53473877867
+17401|Highline School District|1291|1117|0.865220759|2019|Puget Sound ESD|2 Year / CTC|0.28|0.24226181252
+17401|Highline School District|1291|1117|0.865220759|2019|Puget Sound ESD|4 Year|0.31|0.26821843529
+17401|Highline School District|1291|1117|0.865220759|2019|Puget Sound ESD|Not Enrolled|0.4|0.4808675446
+17401|Highline School District|1383|1187|0.858279103|2018|Puget Sound ESD|2 Year / CTC|0.25|0.21456977575
+17401|Highline School District|1383|1187|0.858279103|2018|Puget Sound ESD|4 Year|0.34|0.29181489502
+17401|Highline School District|1383|1187|0.858279103|2018|Puget Sound ESD|Not Enrolled|0.41|0.49361532923
+17401|Highline School District|1280|1076|0.840625|2017|Puget Sound ESD|2 Year / CTC|0.28|0.235375
+17401|Highline School District|1280|1076|0.840625|2017|Puget Sound ESD|4 Year|0.31|0.26059375
+17401|Highline School District|1280|1076|0.840625|2017|Puget Sound ESD|Not Enrolled|0.42|0.5124375
+17401|Highline School District|1224|996|0.81372549|2016|Puget Sound ESD|2 Year / CTC|0.27|0.2197058823
+17401|Highline School District|1224|996|0.81372549|2016|Puget Sound ESD|4 Year|0.35|0.2848039215
+17401|Highline School District|1224|996|0.81372549|2016|Puget Sound ESD|Not Enrolled|0.39|0.5036274511
+17401|Highline School District|1261|997|0.790642347|2015|Puget Sound ESD|2 Year / CTC|0.27|0.21347343369
+17401|Highline School District|1261|997|0.790642347|2015|Puget Sound ESD|4 Year|0.31|0.24509912757
+17401|Highline School District|1261|997|0.790642347|2015|Puget Sound ESD|Not Enrolled|0.42|0.54142743874
+17401|Highline School District|1361|984|0.722997796|2014|Puget Sound ESD|2 Year / CTC|0.31|0.22412931676
+17401|Highline School District|1361|984|0.722997796|2014|Puget Sound ESD|4 Year|0.32|0.23135929472
+17401|Highline School District|1361|984|0.722997796|2014|Puget Sound ESD|Not Enrolled|0.38|0.55174136648
+06098|Hockinson School District|159|152.004|0.956|2020|ESD 112|2 Year / CTC|0.27|0.25812
+06098|Hockinson School District|159|152.004|0.956|2020|ESD 112|4 Year|0.33|0.31548
+06098|Hockinson School District|159|152.004|0.956|2020|ESD 112|Not Enrolled|0.4|0.4264
+06098|Hockinson School District|187|178.211|0.953|2019|ESD 112|2 Year / CTC|0.22|0.20966
+06098|Hockinson School District|187|178.211|0.953|2019|ESD 112|4 Year|0.49|0.46697
+06098|Hockinson School District|187|178.211|0.953|2019|ESD 112|Not Enrolled|0.3|0.3329
+06098|Hockinson School District|183|175|0.956284153|2018|ESD 112|2 Year / CTC|0.24|0.22950819672
+06098|Hockinson School District|183|175|0.956284153|2018|ESD 112|4 Year|0.34|0.32513661202
+06098|Hockinson School District|183|175|0.956284153|2018|ESD 112|Not Enrolled|0.42|0.44535519126
+06098|Hockinson School District|198|190.278|0.961|2017|ESD 112|2 Year / CTC|0.35|0.33635
+06098|Hockinson School District|198|190.278|0.961|2017|ESD 112|4 Year|0.38|0.36518
+06098|Hockinson School District|198|190.278|0.961|2017|ESD 112|Not Enrolled|0.27|0.29847
+06098|Hockinson School District|139|131.216|0.944|2016|ESD 112|2 Year / CTC|0.29|0.27376
+06098|Hockinson School District|139|131.216|0.944|2016|ESD 112|4 Year|0.44|0.41536
+06098|Hockinson School District|139|131.216|0.944|2016|ESD 112|Not Enrolled|0.27|0.31088
+06098|Hockinson School District|184|176.088|0.957|2015|ESD 112|2 Year / CTC|0.25|0.23925
+06098|Hockinson School District|184|176.088|0.957|2015|ESD 112|4 Year|0.45|0.43065
+06098|Hockinson School District|184|176.088|0.957|2015|ESD 112|Not Enrolled|0.29|0.32053
+06098|Hockinson School District|176|162.096|0.921|2014|ESD 112|2 Year / CTC|0.23|0.21183
+06098|Hockinson School District|176|162.096|0.921|2014|ESD 112|4 Year|0.46|0.42366
+06098|Hockinson School District|176|162.096|0.921|2014|ESD 112|Not Enrolled|0.31|0.36451
+08402|Kalama School District|84|80.808|0.962|2020|ESD 112|2 Year / CTC|0.29|0.27898
+08402|Kalama School District|84|80.808|0.962|2020|ESD 112|4 Year|0.1|0.0962
+08402|Kalama School District|84|80.808|0.962|2020|ESD 112|Not Enrolled|0.61|0.62482
+08402|Kalama School District|87|77.43|0.89|2019|ESD 112|2 Year / CTC|0.25|0.2225
+08402|Kalama School District|87|77.43|0.89|2019|ESD 112|4 Year|0.19|0.1691
+08402|Kalama School District|87|77.43|0.89|2019|ESD 112|Not Enrolled|0.56|0.6084
+08402|Kalama School District|84|74.76|0.89|2018|ESD 112|2 Year / CTC|0.32|0.2848
+08402|Kalama School District|84|74.76|0.89|2018|ESD 112|4 Year|0.28|0.2492
+08402|Kalama School District|84|74.76|0.89|2018|ESD 112|Not Enrolled|0.39|0.4571
+08402|Kalama School District|86|81.7|0.95|2017|ESD 112|2 Year / CTC|0.33|0.3135
+08402|Kalama School District|86|81.7|0.95|2017|ESD 112|4 Year|0.32|0.304
+08402|Kalama School District|86|81.7|0.95|2017|ESD 112|Not Enrolled|0.35|0.3825
+08402|Kalama School District|70|64.4|0.92|2016|ESD 112|2 Year / CTC|0.4|0.368
+08402|Kalama School District|70|64.4|0.92|2016|ESD 112|4 Year|0.15|0.138
+08402|Kalama School District|70|64.4|0.92|2016|ESD 112|Not Enrolled|0.45|0.494
+08402|Kalama School District|83|74.7|0.9|2015|ESD 112|2 Year / CTC|0.25|0.225
+08402|Kalama School District|83|74.7|0.9|2015|ESD 112|4 Year|0.24|0.216
+08402|Kalama School District|83|74.7|0.9|2015|ESD 112|Not Enrolled|0.51|0.559
+08402|Kalama School District|69|62.1|0.9|2014|ESD 112|2 Year / CTC|0.27|0.243
+08402|Kalama School District|69|62.1|0.9|2014|ESD 112|4 Year|0.16|0.144
+08402|Kalama School District|69|62.1|0.9|2014|ESD 112|Not Enrolled|0.57|0.613
+20406|Lyle School District|14|||2020|ESD 112|2 Year / CTC|0.13|
+20406|Lyle School District|14|||2020|ESD 112|4 Year|0.31|
+20406|Lyle School District|14|||2020|ESD 112|Not Enrolled|0.56|
+20406|Lyle School District|22|14.74|0.67|2019|ESD 112|2 Year / CTC|0.17|0.1139
+20406|Lyle School District|22|14.74|0.67|2019|ESD 112|4 Year|0.26|0.1742
+20406|Lyle School District|22|14.74|0.67|2019|ESD 112|Not Enrolled|0.57|0.7119
+20406|Lyle School District|21|18.27|0.87|2018|ESD 112|2 Year / CTC|0.22|0.1914
+20406|Lyle School District|21|18.27|0.87|2018|ESD 112|4 Year|0.17|0.1479
+20406|Lyle School District|21|18.27|0.87|2018|ESD 112|Not Enrolled|0.6|0.652
+20406|Lyle School District|24|18.48|0.77|2017|ESD 112|2 Year / CTC|0.28|0.2156
+20406|Lyle School District|24|18.48|0.77|2017|ESD 112|4 Year|0.11|0.0847
+20406|Lyle School District|24|18.48|0.77|2017|ESD 112|Not Enrolled|0.62|0.7074
+20406|Lyle School District|17|14.314|0.842|2016|ESD 112|2 Year / CTC|0.29|0.24418
+20406|Lyle School District|17|14.314|0.842|2016|ESD 112|4 Year|0.13|0.10946
+20406|Lyle School District|17|14.314|0.842|2016|ESD 112|Not Enrolled|0.58|0.64636
+20406|Lyle School District|20|15.6|0.78|2015|ESD 112|2 Year / CTC|0.27|0.2106
+20406|Lyle School District|20|15.6|0.78|2015|ESD 112|4 Year|0.13|0.1014
+20406|Lyle School District|20|15.6|0.78|2015|ESD 112|Not Enrolled|0.6|0.688
+20406|Lyle School District|13|9.75|0.75|2014|ESD 112|2 Year / CTC|0.28|0.21
+20406|Lyle School District|13|9.75|0.75|2014|ESD 112|4 Year|0.15|0.1125
+20406|Lyle School District|13|9.75|0.75|2014|ESD 112|Not Enrolled|0.57|0.6775
+25155|Naselle-Grays River Valley School District|68|60.18|0.885|2020|ESD 112|2 Year / CTC|0.36|0.3186
+25155|Naselle-Grays River Valley School District|68|60.18|0.885|2020|ESD 112|4 Year|0.17|0.15045
+25155|Naselle-Grays River Valley School District|68|60.18|0.885|2020|ESD 112|Not Enrolled|0.47|0.53095
+25155|Naselle-Grays River Valley School District|74|64.75|0.875|2019|ESD 112|2 Year / CTC|0.35|0.30625
+25155|Naselle-Grays River Valley School District|74|64.75|0.875|2019|ESD 112|4 Year|0.23|0.20125
+25155|Naselle-Grays River Valley School District|74|64.75|0.875|2019|ESD 112|Not Enrolled|0.42|0.4925
+25155|Naselle-Grays River Valley School District|85|70.805|0.833|2018|ESD 112|2 Year / CTC|0.29|0.24157
+25155|Naselle-Grays River Valley School District|85|70.805|0.833|2018|ESD 112|4 Year|0.21|0.17493
+25155|Naselle-Grays River Valley School District|85|70.805|0.833|2018|ESD 112|Not Enrolled|0.5|0.5835
+25155|Naselle-Grays River Valley School District|67|58.96|0.88|2017|ESD 112|2 Year / CTC|0.3|0.264
+25155|Naselle-Grays River Valley School District|67|58.96|0.88|2017|ESD 112|4 Year|0.27|0.2376
+25155|Naselle-Grays River Valley School District|67|58.96|0.88|2017|ESD 112|Not Enrolled|0.42|0.4896
+25155|Naselle-Grays River Valley School District|72|63|0.875|2016|ESD 112|2 Year / CTC|0.36|0.315
+25155|Naselle-Grays River Valley School District|72|63|0.875|2016|ESD 112|4 Year|0.25|0.21875
+25155|Naselle-Grays River Valley School District|72|63|0.875|2016|ESD 112|Not Enrolled|0.39|0.46625
+25155|Naselle-Grays River Valley School District|59|49.678|0.842|2015|ESD 112|2 Year / CTC|0.37|0.31154
+25155|Naselle-Grays River Valley School District|59|49.678|0.842|2015|ESD 112|4 Year|0.34|0.28628
+25155|Naselle-Grays River Valley School District|59|49.678|0.842|2015|ESD 112|Not Enrolled|0.29|0.40218
+25155|Naselle-Grays River Valley School District|57|49.875|0.875|2014|ESD 112|2 Year / CTC|0.43|0.37625
+25155|Naselle-Grays River Valley School District|57|49.875|0.875|2014|ESD 112|4 Year|0.31|0.27125
+25155|Naselle-Grays River Valley School District|57|49.875|0.875|2014|ESD 112|Not Enrolled|0.26|0.3525
+18400|North Kitsap School District|431|394|0.914153132|2020|West Sound STEM|2 Year / CTC|0.2|0.1828306264
+18400|North Kitsap School District|431|394|0.914153132|2020|West Sound STEM|4 Year|0.37|0.33823665884
+18400|North Kitsap School District|431|394|0.914153132|2020|West Sound STEM|Not Enrolled|0.42|0.46979118344
+18400|North Kitsap School District|502|478|0.952191235|2019|West Sound STEM|2 Year / CTC|0.26|0.2475697211
+18400|North Kitsap School District|502|478|0.952191235|2019|West Sound STEM|4 Year|0.34|0.3237450199
+18400|North Kitsap School District|502|478|0.952191235|2019|West Sound STEM|Not Enrolled|0.4|0.428685259
+18400|North Kitsap School District|442|406|0.918552036|2018|West Sound STEM|2 Year / CTC|0.27|0.24800904972
+18400|North Kitsap School District|442|406|0.918552036|2018|West Sound STEM|4 Year|0.35|0.3214932126
+18400|North Kitsap School District|442|406|0.918552036|2018|West Sound STEM|Not Enrolled|0.38|0.43049773768
+18400|North Kitsap School District|467|427|0.914346895|2017|West Sound STEM|2 Year / CTC|0.27|0.24687366165
+18400|North Kitsap School District|467|427|0.914346895|2017|West Sound STEM|4 Year|0.4|0.365738758
+18400|North Kitsap School District|467|427|0.914346895|2017|West Sound STEM|Not Enrolled|0.34|0.3965310493
+18400|North Kitsap School District|468|420|0.897435897|2016|West Sound STEM|2 Year / CTC|0.3|0.2692307691
+18400|North Kitsap School District|468|420|0.897435897|2016|West Sound STEM|4 Year|0.33|0.29615384601
+18400|North Kitsap School District|468|420|0.897435897|2016|West Sound STEM|Not Enrolled|0.37|0.43461538489
+18400|North Kitsap School District|480|432|0.9|2015|West Sound STEM|2 Year / CTC|0.3|0.27
+18400|North Kitsap School District|480|432|0.9|2015|West Sound STEM|4 Year|0.4|0.36
+18400|North Kitsap School District|480|432|0.9|2015|West Sound STEM|Not Enrolled|0.3|0.37
+18400|North Kitsap School District|492|424|0.861788618|2014|West Sound STEM|2 Year / CTC|0.27|0.23268292686
+18400|North Kitsap School District|492|424|0.861788618|2014|West Sound STEM|4 Year|0.36|0.31024390248
+18400|North Kitsap School District|492|424|0.861788618|2014|West Sound STEM|Not Enrolled|0.37|0.45707317066
+23403|North Mason School District|201|169|0.84079602|2020|West Sound STEM|2 Year / CTC|0.22|0.1849751244
+23403|North Mason School District|201|169|0.84079602|2020|West Sound STEM|4 Year|0.19|0.1597512438
+23403|North Mason School District|201|169|0.84079602|2020|West Sound STEM|Not Enrolled|0.59|0.6552736318
+23403|North Mason School District|214|181.472|0.848|2019|West Sound STEM|2 Year / CTC|0.28|0.23744
+23403|North Mason School District|214|181.472|0.848|2019|West Sound STEM|4 Year|0.15|0.1272
+23403|North Mason School District|214|181.472|0.848|2019|West Sound STEM|Not Enrolled|0.57|0.63536
+23403|North Mason School District|209|174|0.832535885|2018|West Sound STEM|2 Year / CTC|0.29|0.24143540665
+23403|North Mason School District|209|174|0.832535885|2018|West Sound STEM|4 Year|0.15|0.12488038275
+23403|North Mason School District|209|174|0.832535885|2018|West Sound STEM|Not Enrolled|0.56|0.6336842106
+23403|North Mason School District|198|154|0.777777778|2017|West Sound STEM|2 Year / CTC|0.25|0.1944444445
+23403|North Mason School District|198|154|0.777777778|2017|West Sound STEM|4 Year|0.17|0.13222222226
+23403|North Mason School District|198|154|0.777777778|2017|West Sound STEM|Not Enrolled|0.58|0.67333333324
+23403|North Mason School District|189|153|0.80952381|2016|West Sound STEM|2 Year / CTC|0.28|0.2266666668
+23403|North Mason School District|189|153|0.80952381|2016|West Sound STEM|4 Year|0.17|0.1376190477
+23403|North Mason School District|189|153|0.80952381|2016|West Sound STEM|Not Enrolled|0.54|0.6276190474
+23403|North Mason School District|212|160.272|0.756|2015|West Sound STEM|2 Year / CTC|0.25|0.189
+23403|North Mason School District|212|160.272|0.756|2015|West Sound STEM|4 Year|0.22|0.16632
+23403|North Mason School District|212|160.272|0.756|2015|West Sound STEM|Not Enrolled|0.53|0.64468
+23403|North Mason School District|233|183.138|0.786|2014|West Sound STEM|2 Year / CTC|0.29|0.22794
+23403|North Mason School District|233|183.138|0.786|2014|West Sound STEM|4 Year|0.16|0.12576
+23403|North Mason School District|233|183.138|0.786|2014|West Sound STEM|Not Enrolled|0.55|0.6463
+25101|Ocean Beach School District|80|69.6|0.87|2020|ESD 112|2 Year / CTC|0.15|0.1305
+25101|Ocean Beach School District|80|69.6|0.87|2020|ESD 112|4 Year|0.31|0.2697
+25101|Ocean Beach School District|80|69.6|0.87|2020|ESD 112|Not Enrolled|0.54|0.5998
+25101|Ocean Beach School District|89|73.87|0.83|2019|ESD 112|2 Year / CTC|0.16|0.1328
+25101|Ocean Beach School District|89|73.87|0.83|2019|ESD 112|4 Year|0.38|0.3154
+25101|Ocean Beach School District|89|73.87|0.83|2019|ESD 112|Not Enrolled|0.46|0.5518
+25101|Ocean Beach School District|75|65|0.866666667|2018|ESD 112|2 Year / CTC|0.26|0.22533333342
+25101|Ocean Beach School District|75|65|0.866666667|2018|ESD 112|4 Year|0.26|0.22533333342
+25101|Ocean Beach School District|75|65|0.866666667|2018|ESD 112|Not Enrolled|0.48|0.54933333316
+25101|Ocean Beach School District|76|61.56|0.81|2017|ESD 112|2 Year / CTC|0.15|0.1215
+25101|Ocean Beach School District|76|61.56|0.81|2017|ESD 112|4 Year|0.41|0.3321
+25101|Ocean Beach School District|76|61.56|0.81|2017|ESD 112|Not Enrolled|0.44|0.5464
+25101|Ocean Beach School District|65|52|0.8|2016|ESD 112|2 Year / CTC|0.18|0.144
+25101|Ocean Beach School District|65|52|0.8|2016|ESD 112|4 Year|0.26|0.208
+25101|Ocean Beach School District|65|52|0.8|2016|ESD 112|Not Enrolled|0.55|0.64
+25101|Ocean Beach School District|76|66.12|0.87|2015|ESD 112|2 Year / CTC|0.27|0.2349
+25101|Ocean Beach School District|76|66.12|0.87|2015|ESD 112|4 Year|0.18|0.1566
+25101|Ocean Beach School District|76|66.12|0.87|2015|ESD 112|Not Enrolled|0.55|0.6085
+25101|Ocean Beach School District|69|56.58|0.82|2014|ESD 112|2 Year / CTC|0.3|0.246
+25101|Ocean Beach School District|69|56.58|0.82|2014|ESD 112|4 Year|0.18|0.1476
+25101|Ocean Beach School District|69|56.58|0.82|2014|ESD 112|Not Enrolled|0.52|0.6064
+05121|Port Angeles School District|315|277|0.879365079|2020|West Sound STEM|2 Year / CTC|0.2|0.1758730158
+05121|Port Angeles School District|315|277|0.879365079|2020|West Sound STEM|4 Year|0.24|0.21104761896
+05121|Port Angeles School District|315|277|0.879365079|2020|West Sound STEM|Not Enrolled|0.56|0.61307936524
+05121|Port Angeles School District|325|273.65|0.842|2019|West Sound STEM|2 Year / CTC|0.32|0.26944
+05121|Port Angeles School District|325|273.65|0.842|2019|West Sound STEM|4 Year|0.24|0.20208
+05121|Port Angeles School District|325|273.65|0.842|2019|West Sound STEM|Not Enrolled|0.44|0.52848
+05121|Port Angeles School District|306|254|0.830065359|2018|West Sound STEM|2 Year / CTC|0.29|0.24071895411
+05121|Port Angeles School District|306|254|0.830065359|2018|West Sound STEM|4 Year|0.27|0.22411764693
+05121|Port Angeles School District|306|254|0.830065359|2018|West Sound STEM|Not Enrolled|0.44|0.53516339896
+05121|Port Angeles School District|297|245|0.824915825|2017|West Sound STEM|2 Year / CTC|0.29|0.23922558925
+05121|Port Angeles School District|297|245|0.824915825|2017|West Sound STEM|4 Year|0.24|0.197979798
+05121|Port Angeles School District|297|245|0.824915825|2017|West Sound STEM|Not Enrolled|0.47|0.56279461275
+05121|Port Angeles School District|311|256|0.823151125|2016|West Sound STEM|2 Year / CTC|0.29|0.23871382625
+05121|Port Angeles School District|311|256|0.823151125|2016|West Sound STEM|4 Year|0.22|0.1810932475
+05121|Port Angeles School District|311|256|0.823151125|2016|West Sound STEM|Not Enrolled|0.49|0.58019292625
+05121|Port Angeles School District|295|250|0.847457627|2015|West Sound STEM|2 Year / CTC|0.25|0.21186440675
+05121|Port Angeles School District|295|250|0.847457627|2015|West Sound STEM|4 Year|0.26|0.22033898302
+05121|Port Angeles School District|295|250|0.847457627|2015|West Sound STEM|Not Enrolled|0.49|0.56779661023
+05121|Port Angeles School District|310|256|0.825806452|2014|West Sound STEM|2 Year / CTC|0.4|0.3303225808
+05121|Port Angeles School District|310|256|0.825806452|2014|West Sound STEM|4 Year|0.22|0.18167741944
+05121|Port Angeles School District|310|256|0.825806452|2014|West Sound STEM|Not Enrolled|0.38|0.48799999976
+16050|Port Townsend School District|104|92.56|0.89|2020|West Sound STEM|2 Year / CTC|0.16|0.1424
+16050|Port Townsend School District|104|92.56|0.89|2020|West Sound STEM|4 Year|0.27|0.2403
+16050|Port Townsend School District|104|92.56|0.89|2020|West Sound STEM|Not Enrolled|0.58|0.6262
+16050|Port Townsend School District|94|84.6|0.9|2019|West Sound STEM|2 Year / CTC|0.23|0.207
+16050|Port Townsend School District|94|84.6|0.9|2019|West Sound STEM|4 Year|0.32|0.288
+16050|Port Townsend School District|94|84.6|0.9|2019|West Sound STEM|Not Enrolled|0.45|0.505
+16050|Port Townsend School District|91|83.72|0.92|2018|West Sound STEM|2 Year / CTC|0.22|0.2024
+16050|Port Townsend School District|91|83.72|0.92|2018|West Sound STEM|4 Year|0.29|0.2668
+16050|Port Townsend School District|91|83.72|0.92|2018|West Sound STEM|Not Enrolled|0.49|0.5308
+16050|Port Townsend School District|117|96|0.820512821|2017|West Sound STEM|2 Year / CTC|0.21|0.17230769241
+16050|Port Townsend School District|117|96|0.820512821|2017|West Sound STEM|4 Year|0.37|0.30358974377
+16050|Port Townsend School District|117|96|0.820512821|2017|West Sound STEM|Not Enrolled|0.42|0.52410256382
+16050|Port Townsend School District|109|83|0.76146789|2016|West Sound STEM|2 Year / CTC|0.23|0.1751376147
+16050|Port Townsend School District|109|83|0.76146789|2016|West Sound STEM|4 Year|0.37|0.2817431193
+16050|Port Townsend School District|109|83|0.76146789|2016|West Sound STEM|Not Enrolled|0.4|0.543119266
+16050|Port Townsend School District|111|92.019|0.829|2015|West Sound STEM|2 Year / CTC|0.22|0.18238
+16050|Port Townsend School District|111|92.019|0.829|2015|West Sound STEM|4 Year|0.45|0.37305
+16050|Port Townsend School District|111|92.019|0.829|2015|West Sound STEM|Not Enrolled|0.33|0.44457
+16050|Port Townsend School District|125|108.25|0.866|2014|West Sound STEM|2 Year / CTC|0.25|0.2165
+16050|Port Townsend School District|125|108.25|0.866|2014|West Sound STEM|4 Year|0.42|0.36372
+16050|Port Townsend School District|125|108.25|0.866|2014|West Sound STEM|Not Enrolled|0.33|0.41978
+36402|Prescott School District|21|16.38|0.78|2020|United Way of the Blue Mountains|2 Year / CTC|0.39|0.3042
+36402|Prescott School District|21|16.38|0.78|2020|United Way of the Blue Mountains|4 Year|0.35|0.273
+36402|Prescott School District|21|16.38|0.78|2020|United Way of the Blue Mountains|Not Enrolled|0.27|0.4306
+36402|Prescott School District|23|18.952|0.824|2019|United Way of the Blue Mountains|2 Year / CTC|0.52|0.42848
+36402|Prescott School District|23|18.952|0.824|2019|United Way of the Blue Mountains|4 Year|0.31|0.25544
+36402|Prescott School District|23|18.952|0.824|2019|United Way of the Blue Mountains|Not Enrolled|0.17|0.31608
+36402|Prescott School District|17|13.6|0.8|2018|United Way of the Blue Mountains|2 Year / CTC|0.44|0.352
+36402|Prescott School District|17|13.6|0.8|2018|United Way of the Blue Mountains|4 Year|0.3|0.24
+36402|Prescott School District|17|13.6|0.8|2018|United Way of the Blue Mountains|Not Enrolled|0.26|0.408
+36402|Prescott School District|16|12|0.75|2017|United Way of the Blue Mountains|2 Year / CTC|0.49|0.3675
+36402|Prescott School District|16|12|0.75|2017|United Way of the Blue Mountains|4 Year|0.22|0.165
+36402|Prescott School District|16|12|0.75|2017|United Way of the Blue Mountains|Not Enrolled|0.29|0.4675
+36402|Prescott School District|16|13.008|0.813|2016|United Way of the Blue Mountains|2 Year / CTC|0.41|0.33333
+36402|Prescott School District|16|13.008|0.813|2016|United Way of the Blue Mountains|4 Year|0.17|0.13821
+36402|Prescott School District|16|13.008|0.813|2016|United Way of the Blue Mountains|Not Enrolled|0.41|0.52033
+36402|Prescott School District|24|20.4|0.85|2015|United Way of the Blue Mountains|2 Year / CTC|0.48|0.408
+36402|Prescott School District|24|20.4|0.85|2015|United Way of the Blue Mountains|4 Year|0.12|0.102
+36402|Prescott School District|24|20.4|0.85|2015|United Way of the Blue Mountains|Not Enrolled|0.39|0.4815
+36402|Prescott School District|24|20.568|0.857|2014|United Way of the Blue Mountains|2 Year / CTC|0.45|0.38565
+36402|Prescott School District|24|20.568|0.857|2014|United Way of the Blue Mountains|4 Year|0.1|0.0857
+36402|Prescott School District|24|20.568|0.857|2014|United Way of the Blue Mountains|Not Enrolled|0.45|0.52865
+16048|Quilcene School District|27|22.734|0.842|2020|West Sound STEM|2 Year / CTC|0.32|0.26944
+16048|Quilcene School District|27|22.734|0.842|2020|West Sound STEM|4 Year|0.2|0.1684
+16048|Quilcene School District|27|22.734|0.842|2020|West Sound STEM|Not Enrolled|0.47|0.55374
+16048|Quilcene School District|22|18.7|0.85|2019|West Sound STEM|2 Year / CTC|0.27|0.2295
+16048|Quilcene School District|22|18.7|0.85|2019|West Sound STEM|4 Year|0.29|0.2465
+16048|Quilcene School District|22|18.7|0.85|2019|West Sound STEM|Not Enrolled|0.44|0.524
+16048|Quilcene School District|24|20.88|0.87|2018|West Sound STEM|2 Year / CTC|0.23|0.2001
+16048|Quilcene School District|24|20.88|0.87|2018|West Sound STEM|4 Year|0.26|0.2262
+16048|Quilcene School District|24|20.88|0.87|2018|West Sound STEM|Not Enrolled|0.52|0.5824
+16048|Quilcene School District|23|17.71|0.77|2017|West Sound STEM|2 Year / CTC|0.2|0.154
+16048|Quilcene School District|23|17.71|0.77|2017|West Sound STEM|4 Year|0.32|0.2464
+16048|Quilcene School District|23|17.71|0.77|2017|West Sound STEM|Not Enrolled|0.47|0.5919
+16048|Quilcene School District|18|15.84|0.88|2016|West Sound STEM|2 Year / CTC|0.25|0.22
+16048|Quilcene School District|18|15.84|0.88|2016|West Sound STEM|4 Year|0.16|0.1408
+16048|Quilcene School District|18|15.84|0.88|2016|West Sound STEM|Not Enrolled|0.58|0.6304
+16048|Quilcene School District|31|24.18|0.78|2015|West Sound STEM|2 Year / CTC|0.23|0.1794
+16048|Quilcene School District|31|24.18|0.78|2015|West Sound STEM|4 Year|0.19|0.1482
+16048|Quilcene School District|31|24.18|0.78|2015|West Sound STEM|Not Enrolled|0.58|0.6724
+16048|Quilcene School District|20|17|0.85|2014|West Sound STEM|2 Year / CTC|0.2|0.17
+16048|Quilcene School District|20|17|0.85|2014|West Sound STEM|4 Year|0.07|0.0595
+16048|Quilcene School District|20|17|0.85|2014|West Sound STEM|Not Enrolled|0.73|0.7705
+05323|Sequim School District|225|196.2|0.872|2020|West Sound STEM|2 Year / CTC|0.22|0.19184
+05323|Sequim School District|225|196.2|0.872|2020|West Sound STEM|4 Year|0.25|0.218
+05323|Sequim School District|225|196.2|0.872|2020|West Sound STEM|Not Enrolled|0.53|0.59016
+05323|Sequim School District|211|191.377|0.907|2019|West Sound STEM|2 Year / CTC|0.23|0.20861
+05323|Sequim School District|211|191.377|0.907|2019|West Sound STEM|4 Year|0.37|0.33559
+05323|Sequim School District|211|191.377|0.907|2019|West Sound STEM|Not Enrolled|0.4|0.4558
+05323|Sequim School District|199|180|0.904522613|2018|West Sound STEM|2 Year / CTC|0.3|0.2713567839
+05323|Sequim School District|199|180|0.904522613|2018|West Sound STEM|4 Year|0.3|0.2713567839
+05323|Sequim School District|199|180|0.904522613|2018|West Sound STEM|Not Enrolled|0.39|0.44824120607
+05323|Sequim School District|219|197.319|0.901|2017|West Sound STEM|2 Year / CTC|0.29|0.26129
+05323|Sequim School District|219|197.319|0.901|2017|West Sound STEM|4 Year|0.29|0.26129
+05323|Sequim School District|219|197.319|0.901|2017|West Sound STEM|Not Enrolled|0.42|0.47742
+05323|Sequim School District|243|219|0.901234568|2016|West Sound STEM|2 Year / CTC|0.23|0.20728395064
+05323|Sequim School District|243|219|0.901234568|2016|West Sound STEM|4 Year|0.23|0.20728395064
+05323|Sequim School District|243|219|0.901234568|2016|West Sound STEM|Not Enrolled|0.54|0.58543209872
+05323|Sequim School District|248|219|0.883064516|2015|West Sound STEM|2 Year / CTC|0.26|0.22959677416
+05323|Sequim School District|248|219|0.883064516|2015|West Sound STEM|4 Year|0.31|0.27374999996
+05323|Sequim School District|248|219|0.883064516|2015|West Sound STEM|Not Enrolled|0.43|0.49665322588
+05323|Sequim School District|220|185|0.840909091|2014|West Sound STEM|2 Year / CTC|0.38|0.31954545458
+05323|Sequim School District|220|185|0.840909091|2014|West Sound STEM|4 Year|0.29|0.24386363639
+05323|Sequim School District|220|185|0.840909091|2014|West Sound STEM|Not Enrolled|0.33|0.43659090903
+18402|South Kitsap School District|693|617|0.89033189|2020|West Sound STEM|2 Year / CTC|0.17|0.1513564213
+18402|South Kitsap School District|693|617|0.89033189|2020|West Sound STEM|4 Year|0.22|0.1958730158
+18402|South Kitsap School District|693|617|0.89033189|2020|West Sound STEM|Not Enrolled|0.61|0.6527705629
+18402|South Kitsap School District|742|661|0.89083558|2019|West Sound STEM|2 Year / CTC|0.21|0.1870754718
+18402|South Kitsap School District|742|661|0.89083558|2019|West Sound STEM|4 Year|0.27|0.2405256066
+18402|South Kitsap School District|742|661|0.89083558|2019|West Sound STEM|Not Enrolled|0.52|0.5723989216
+18402|South Kitsap School District|726|616|0.848484848|2018|West Sound STEM|2 Year / CTC|0.2|0.1696969696
+18402|South Kitsap School District|726|616|0.848484848|2018|West Sound STEM|4 Year|0.23|0.19515151504
+18402|South Kitsap School District|726|616|0.848484848|2018|West Sound STEM|Not Enrolled|0.57|0.63515151536
+18402|South Kitsap School District|698|599|0.858166189|2017|West Sound STEM|2 Year / CTC|0.28|0.24028653292
+18402|South Kitsap School District|698|599|0.858166189|2017|West Sound STEM|4 Year|0.19|0.16305157591
+18402|South Kitsap School District|698|599|0.858166189|2017|West Sound STEM|Not Enrolled|0.53|0.59666189117
+18402|South Kitsap School District|715|602|0.841958042|2016|West Sound STEM|2 Year / CTC|0.26|0.21890909092
+18402|South Kitsap School District|715|602|0.841958042|2016|West Sound STEM|4 Year|0.2|0.1683916084
+18402|South Kitsap School District|715|602|0.841958042|2016|West Sound STEM|Not Enrolled|0.54|0.61269930068
+18402|South Kitsap School District|737|621|0.842605156|2015|West Sound STEM|2 Year / CTC|0.27|0.22750339212
+18402|South Kitsap School District|737|621|0.842605156|2015|West Sound STEM|4 Year|0.23|0.19379918588
+18402|South Kitsap School District|737|621|0.842605156|2015|West Sound STEM|Not Enrolled|0.5|0.578697422
+18402|South Kitsap School District|773|635|0.821474774|2014|West Sound STEM|2 Year / CTC|0.31|0.25465717994
+18402|South Kitsap School District|773|635|0.821474774|2014|West Sound STEM|4 Year|0.2|0.1642949548
+18402|South Kitsap School District|773|635|0.821474774|2014|West Sound STEM|Not Enrolled|0.49|0.58104786526
+30303|Stevenson-Carson School District|89|81.88|0.92|2020|ESD 112|2 Year / CTC|0.22|0.2024
+30303|Stevenson-Carson School District|89|81.88|0.92|2020|ESD 112|4 Year|0.17|0.1564
+30303|Stevenson-Carson School District|89|81.88|0.92|2020|ESD 112|Not Enrolled|0.61|0.6412
+30303|Stevenson-Carson School District|66|54.78|0.83|2019|ESD 112|2 Year / CTC|0.17|0.1411
+30303|Stevenson-Carson School District|66|54.78|0.83|2019|ESD 112|4 Year|0.3|0.249
+30303|Stevenson-Carson School District|66|54.78|0.83|2019|ESD 112|Not Enrolled|0.52|0.6016
+30303|Stevenson-Carson School District|81|68.85|0.85|2018|ESD 112|2 Year / CTC|0.22|0.187
+30303|Stevenson-Carson School District|81|68.85|0.85|2018|ESD 112|4 Year|0.19|0.1615
+30303|Stevenson-Carson School District|81|68.85|0.85|2018|ESD 112|Not Enrolled|0.58|0.643
+30303|Stevenson-Carson School District|78|63.96|0.82|2017|ESD 112|2 Year / CTC|0.27|0.2214
+30303|Stevenson-Carson School District|78|63.96|0.82|2017|ESD 112|4 Year|0.2|0.164
+30303|Stevenson-Carson School District|78|63.96|0.82|2017|ESD 112|Not Enrolled|0.53|0.6146
+30303|Stevenson-Carson School District|85|68.85|0.81|2016|ESD 112|2 Year / CTC|0.14|0.1134
+30303|Stevenson-Carson School District|85|68.85|0.81|2016|ESD 112|4 Year|0.22|0.1782
+30303|Stevenson-Carson School District|85|68.85|0.81|2016|ESD 112|Not Enrolled|0.64|0.7084
+30303|Stevenson-Carson School District|71|61.06|0.86|2015|ESD 112|2 Year / CTC|0.15|0.129
+30303|Stevenson-Carson School District|71|61.06|0.86|2015|ESD 112|4 Year|0.27|0.2322
+30303|Stevenson-Carson School District|71|61.06|0.86|2015|ESD 112|Not Enrolled|0.58|0.6388
+30303|Stevenson-Carson School District|82|65.6|0.8|2014|ESD 112|2 Year / CTC|0.15|0.12
+30303|Stevenson-Carson School District|82|65.6|0.8|2014|ESD 112|4 Year|0.33|0.264
+30303|Stevenson-Carson School District|82|65.6|0.8|2014|ESD 112|Not Enrolled|0.52|0.616
+20400|Trout Lake School District|19|14.25|0.75|2020|ESD 112|2 Year / CTC|0.28|0.21
+20400|Trout Lake School District|19|14.25|0.75|2020|ESD 112|4 Year|0.58|0.435
+20400|Trout Lake School District|19|14.25|0.75|2020|ESD 112|Not Enrolled|0.14|0.355
+20400|Trout Lake School District|11|7.997|0.727|2019|ESD 112|2 Year / CTC|0.17|0.12359
+20400|Trout Lake School District|11|7.997|0.727|2019|ESD 112|4 Year|0.56|0.40712
+20400|Trout Lake School District|11|7.997|0.727|2019|ESD 112|Not Enrolled|0.28|0.47656
+20400|Trout Lake School District|12|9.228|0.769|2018|ESD 112|2 Year / CTC|0.17|0.13073
+20400|Trout Lake School District|12|9.228|0.769|2018|ESD 112|4 Year|0.55|0.42295
+20400|Trout Lake School District|12|9.228|0.769|2018|ESD 112|Not Enrolled|0.28|0.44632
+20400|Trout Lake School District|13|9.997|0.769|2017|ESD 112|2 Year / CTC|0.05|0.03845
+20400|Trout Lake School District|13|9.997|0.769|2017|ESD 112|4 Year|0.445|0.342205
+20400|Trout Lake School District|13|9.997|0.769|2017|ESD 112|Not Enrolled|0.445|0.573205
+20400|Trout Lake School District|13|10.218|0.786|2016|ESD 112|2 Year / CTC|0.17|0.13362
+20400|Trout Lake School District|13|10.218|0.786|2016|ESD 112|4 Year|0.49|0.38514
+20400|Trout Lake School District|13|10.218|0.786|2016|ESD 112|Not Enrolled|0.34|0.48124
+20400|Trout Lake School District|15|11.535|0.769|2015|ESD 112|2 Year / CTC|0.19|0.14611
+20400|Trout Lake School District|15|11.535|0.769|2015|ESD 112|4 Year|0.41|0.31529
+20400|Trout Lake School District|15|11.535|0.769|2015|ESD 112|Not Enrolled|0.41|0.54629
+20400|Trout Lake School District|13|||2014|ESD 112|2 Year / CTC|0.21|
+20400|Trout Lake School District|13|||2014|ESD 112|4 Year|0.44|
+20400|Trout Lake School District|13|||2014|ESD 112|Not Enrolled|0.36|
+17406|Tukwila School District|239|208|0.870292887|2020|Puget Sound ESD|2 Year / CTC|0.28|0.24368200836
+17406|Tukwila School District|239|208|0.870292887|2020|Puget Sound ESD|4 Year|0.36|0.31330543932
+17406|Tukwila School District|239|208|0.870292887|2020|Puget Sound ESD|Not Enrolled|0.37|0.45171548119
+17406|Tukwila School District|216|174|0.805555556|2019|Puget Sound ESD|2 Year / CTC|0.33|0.26583333348
+17406|Tukwila School District|216|174|0.805555556|2019|Puget Sound ESD|4 Year|0.33|0.26583333348
+17406|Tukwila School District|216|174|0.805555556|2019|Puget Sound ESD|Not Enrolled|0.34|0.46833333304
+17406|Tukwila School District|215|181|0.841860465|2018|Puget Sound ESD|2 Year / CTC|0.25|0.21046511625
+17406|Tukwila School District|215|181|0.841860465|2018|Puget Sound ESD|4 Year|0.37|0.31148837205
+17406|Tukwila School District|215|181|0.841860465|2018|Puget Sound ESD|Not Enrolled|0.38|0.4780465117
+17406|Tukwila School District|206|170|0.825242718|2017|Puget Sound ESD|2 Year / CTC|0.29|0.23932038822
+17406|Tukwila School District|206|170|0.825242718|2017|Puget Sound ESD|4 Year|0.3|0.2475728154
+17406|Tukwila School District|206|170|0.825242718|2017|Puget Sound ESD|Not Enrolled|0.41|0.51310679638
+17406|Tukwila School District|211|165|0.781990521|2016|Puget Sound ESD|2 Year / CTC|0.3|0.2345971563
+17406|Tukwila School District|211|165|0.781990521|2016|Puget Sound ESD|4 Year|0.3|0.2345971563
+17406|Tukwila School District|211|165|0.781990521|2016|Puget Sound ESD|Not Enrolled|0.4|0.5308056874
+17406|Tukwila School District|240|186|0.775|2015|Puget Sound ESD|2 Year / CTC|0.32|0.248
+17406|Tukwila School District|240|186|0.775|2015|Puget Sound ESD|4 Year|0.26|0.2015
+17406|Tukwila School District|240|186|0.775|2015|Puget Sound ESD|Not Enrolled|0.43|0.55825
+17406|Tukwila School District|199|137|0.688442211|2014|Puget Sound ESD|2 Year / CTC|0.42|0.28914572862
+17406|Tukwila School District|199|137|0.688442211|2014|Puget Sound ESD|4 Year|0.24|0.16522613064
+17406|Tukwila School District|199|137|0.688442211|2014|Puget Sound ESD|Not Enrolled|0.34|0.54562814074
+35200|Wahkiakum School District|63|57.33|0.91|2020|ESD 112|2 Year / CTC|0.26|0.2366
+35200|Wahkiakum School District|63|57.33|0.91|2020|ESD 112|4 Year|0.17|0.1547
+35200|Wahkiakum School District|63|57.33|0.91|2020|ESD 112|Not Enrolled|0.57|0.6087
+35200|Wahkiakum School District|43|38.27|0.89|2019|ESD 112|2 Year / CTC|0.25|0.2225
+35200|Wahkiakum School District|43|38.27|0.89|2019|ESD 112|4 Year|0.28|0.2492
+35200|Wahkiakum School District|43|38.27|0.89|2019|ESD 112|Not Enrolled|0.47|0.5283
+35200|Wahkiakum School District|40|33.2|0.83|2018|ESD 112|2 Year / CTC|0.24|0.1992
+35200|Wahkiakum School District|40|33.2|0.83|2018|ESD 112|4 Year|0.28|0.2324
+35200|Wahkiakum School District|40|33.2|0.83|2018|ESD 112|Not Enrolled|0.47|0.5601
+35200|Wahkiakum School District|34|30.94|0.91|2017|ESD 112|2 Year / CTC|0.22|0.2002
+35200|Wahkiakum School District|34|30.94|0.91|2017|ESD 112|4 Year|0.29|0.2639
+35200|Wahkiakum School District|34|30.94|0.91|2017|ESD 112|Not Enrolled|0.49|0.5359
+35200|Wahkiakum School District|32|28.576|0.893|2016|ESD 112|2 Year / CTC|0.32|0.28576
+35200|Wahkiakum School District|32|28.576|0.893|2016|ESD 112|4 Year|0.26|0.23218
+35200|Wahkiakum School District|32|28.576|0.893|2016|ESD 112|Not Enrolled|0.42|0.48206
+35200|Wahkiakum School District|33|27.39|0.83|2015|ESD 112|2 Year / CTC|0.35|0.2905
+35200|Wahkiakum School District|33|27.39|0.83|2015|ESD 112|4 Year|0.25|0.2075
+35200|Wahkiakum School District|33|27.39|0.83|2015|ESD 112|Not Enrolled|0.4|0.502
+35200|Wahkiakum School District|56|50.736|0.906|2014|ESD 112|2 Year / CTC|0.4|0.3624
+35200|Wahkiakum School District|56|50.736|0.906|2014|ESD 112|4 Year|0.24|0.21744
+35200|Wahkiakum School District|56|50.736|0.906|2014|ESD 112|Not Enrolled|0.36|0.42016
+36140|Walla Walla Public Schools|534|523.854|0.981|2020|United Way of the Blue Mountains|2 Year / CTC|0.28|0.27468
+36140|Walla Walla Public Schools|534|523.854|0.981|2020|United Way of the Blue Mountains|4 Year|0.23|0.22563
+36140|Walla Walla Public Schools|534|523.854|0.981|2020|United Way of the Blue Mountains|Not Enrolled|0.49|0.49969
+36140|Walla Walla Public Schools|423|397|0.938534279|2019|United Way of the Blue Mountains|2 Year / CTC|0.34|0.31910165486
+36140|Walla Walla Public Schools|423|397|0.938534279|2019|United Way of the Blue Mountains|4 Year|0.28|0.26278959812
+36140|Walla Walla Public Schools|423|397|0.938534279|2019|United Way of the Blue Mountains|Not Enrolled|0.38|0.41810874702
+36140|Walla Walla Public Schools|432|396|0.916666667|2018|United Way of the Blue Mountains|2 Year / CTC|0.38|0.34833333346
+36140|Walla Walla Public Schools|432|396|0.916666667|2018|United Way of the Blue Mountains|4 Year|0.22|0.20166666674
+36140|Walla Walla Public Schools|432|396|0.916666667|2018|United Way of the Blue Mountains|Not Enrolled|0.4|0.4499999998
+36140|Walla Walla Public Schools|544|444|0.816176471|2017|United Way of the Blue Mountains|2 Year / CTC|0.39|0.31830882369
+36140|Walla Walla Public Schools|544|444|0.816176471|2017|United Way of the Blue Mountains|4 Year|0.24|0.19588235304
+36140|Walla Walla Public Schools|544|444|0.816176471|2017|United Way of the Blue Mountains|Not Enrolled|0.37|0.48580882327
+36140|Walla Walla Public Schools|564|484|0.858156028|2016|United Way of the Blue Mountains|2 Year / CTC|0.35|0.3003546098
+36140|Walla Walla Public Schools|564|484|0.858156028|2016|United Way of the Blue Mountains|4 Year|0.22|0.18879432616
+36140|Walla Walla Public Schools|564|484|0.858156028|2016|United Way of the Blue Mountains|Not Enrolled|0.43|0.51085106404
+36140|Walla Walla Public Schools|553|462|0.835443038|2015|United Way of the Blue Mountains|2 Year / CTC|0.41|0.34253164558
+36140|Walla Walla Public Schools|553|462|0.835443038|2015|United Way of the Blue Mountains|4 Year|0.25|0.2088607595
+36140|Walla Walla Public Schools|553|462|0.835443038|2015|United Way of the Blue Mountains|Not Enrolled|0.34|0.44860759492
+36140|Walla Walla Public Schools|545|458|0.840366972|2014|United Way of the Blue Mountains|2 Year / CTC|0.37|0.31093577964
+36140|Walla Walla Public Schools|545|458|0.840366972|2014|United Way of the Blue Mountains|4 Year|0.29|0.24370642188
+36140|Walla Walla Public Schools|545|458|0.840366972|2014|United Way of the Blue Mountains|Not Enrolled|0.33|0.43695412876
+20405|White Salmon Valley School District|94|89.582|0.953|2020|ESD 112|2 Year / CTC|0.15|0.14295
+20405|White Salmon Valley School District|94|89.582|0.953|2020|ESD 112|4 Year|0.25|0.23825
+20405|White Salmon Valley School District|94|89.582|0.953|2020|ESD 112|Not Enrolled|0.61|0.62833
+20405|White Salmon Valley School District|106|96.778|0.913|2019|ESD 112|2 Year / CTC|0.12|0.10956
+20405|White Salmon Valley School District|106|96.778|0.913|2019|ESD 112|4 Year|0.35|0.31955
+20405|White Salmon Valley School District|106|96.778|0.913|2019|ESD 112|Not Enrolled|0.53|0.57089
+20405|White Salmon Valley School District|102|96.9|0.95|2018|ESD 112|2 Year / CTC|0.17|0.1615
+20405|White Salmon Valley School District|102|96.9|0.95|2018|ESD 112|4 Year|0.33|0.3135
+20405|White Salmon Valley School District|102|96.9|0.95|2018|ESD 112|Not Enrolled|0.5|0.525
+20405|White Salmon Valley School District|119|102.34|0.86|2017|ESD 112|2 Year / CTC|0.18|0.1548
+20405|White Salmon Valley School District|119|102.34|0.86|2017|ESD 112|4 Year|0.35|0.301
+20405|White Salmon Valley School District|119|102.34|0.86|2017|ESD 112|Not Enrolled|0.47|0.5442
+20405|White Salmon Valley School District|84|71.4|0.85|2016|ESD 112|2 Year / CTC|0.16|0.136
+20405|White Salmon Valley School District|84|71.4|0.85|2016|ESD 112|4 Year|0.37|0.3145
+20405|White Salmon Valley School District|84|71.4|0.85|2016|ESD 112|Not Enrolled|0.47|0.5495
+20405|White Salmon Valley School District|99|84.15|0.85|2015|ESD 112|2 Year / CTC|0.2|0.17
+20405|White Salmon Valley School District|99|84.15|0.85|2015|ESD 112|4 Year|0.35|0.2975
+20405|White Salmon Valley School District|99|84.15|0.85|2015|ESD 112|Not Enrolled|0.45|0.5325
+20405|White Salmon Valley School District|97|77|0.793814433|2014|ESD 112|2 Year / CTC|0.21|0.16670103093
+20405|White Salmon Valley School District|97|77|0.793814433|2014|ESD 112|4 Year|0.34|0.26989690722
+20405|White Salmon Valley School District|97|77|0.793814433|2014|ESD 112|Not Enrolled|0.45|0.56340206185
+18303|Bainbridge Island School District|377|362|0.960212202|2021|West Sound STEM|2 Year / CTC|0.08|0.07681697616
+18303|Bainbridge Island School District|377|362|0.960212202|2021|West Sound STEM|4 Year|0.68|0.65294429736
+18303|Bainbridge Island School District|377|362|0.960212202|2021|West Sound STEM|Not Enrolled|0.24|0.27023872648
+05401|Cape Flattery School District|36|33.48|0.93|2021|West Sound STEM|2 Year / CTC|0.19|0.1767
+05401|Cape Flattery School District|36|33.48|0.93|2021|West Sound STEM|4 Year|0.28|0.2604
+05401|Cape Flattery School District|36|33.48|0.93|2021|West Sound STEM|Not Enrolled|0.53|0.5629
+08401|Castle Rock School District|100|86|0.86|2021|ESD 112|2 Year / CTC|0.19|0.1634
+08401|Castle Rock School District|100|86|0.86|2021|ESD 112|4 Year|0.16|0.1376
+08401|Castle Rock School District|100|86|0.86|2021|ESD 112|Not Enrolled|0.65|0.699
+18401|Central Kitsap School District|920|824|0.895652174|2021|West Sound STEM|2 Year / CTC|0.23|0.20600000002
+18401|Central Kitsap School District|920|824|0.895652174|2021|West Sound STEM|4 Year|0.26|0.23286956524
+18401|Central Kitsap School District|920|824|0.895652174|2021|West Sound STEM|Not Enrolled|0.51|0.56113043474
+36250|College Place School District|143|136.422|0.954|2021|United Way of the Blue Mountains|2 Year / CTC|0.37|0.35298
+36250|College Place School District|143|136.422|0.954|2021|United Way of the Blue Mountains|4 Year|0.12|0.11448
+36250|College Place School District|143|136.422|0.954|2021|United Way of the Blue Mountains|Not Enrolled|0.51|0.53254
+05313|Crescent School District|19|15.827|0.833|2021|West Sound STEM|2 Year / CTC|0.35|0.29155
+05313|Crescent School District|19|15.827|0.833|2021|West Sound STEM|4 Year|0.08|0.06664
+05313|Crescent School District|19|15.827|0.833|2021|West Sound STEM|Not Enrolled|0.56|0.63348
+07002|Dayton School District|27|20.79|0.77|2021|United Way of the Blue Mountains|2 Year / CTC|0.34|0.2618
+07002|Dayton School District|27|20.79|0.77|2021|United Way of the Blue Mountains|4 Year|0.3|0.231
+07002|Dayton School District|27|20.79|0.77|2021|United Way of the Blue Mountains|Not Enrolled|0.37|0.5149
+17210|Federal Way School District|1632|1458|0.893382353|2021|Puget Sound ESD|2 Year / CTC|0.18|0.16080882354
+17210|Federal Way School District|1632|1458|0.893382353|2021|Puget Sound ESD|4 Year|0.33|0.29481617649
+17210|Federal Way School District|1632|1458|0.893382353|2021|Puget Sound ESD|Not Enrolled|0.49|0.54437499997
+17401|Highline School District|1273|1102|0.865671642|2021|Puget Sound ESD|2 Year / CTC|0.24|0.20776119408
+17401|Highline School District|1273|1102|0.865671642|2021|Puget Sound ESD|4 Year|0.3|0.2597014926
+17401|Highline School District|1273|1102|0.865671642|2021|Puget Sound ESD|Not Enrolled|0.46|0.53253731332
+06098|Hockinson School District|168|164.64|0.98|2021|ESD 112|2 Year / CTC|0.23|0.2254
+06098|Hockinson School District|168|164.64|0.98|2021|ESD 112|4 Year|0.36|0.3528
+06098|Hockinson School District|168|164.64|0.98|2021|ESD 112|Not Enrolled|0.42|0.4316
+08402|Kalama School District|84|78.96|0.94|2021|ESD 112|2 Year / CTC|0.18|0.1692
+08402|Kalama School District|84|78.96|0.94|2021|ESD 112|4 Year|0.3|0.282
+08402|Kalama School District|84|78.96|0.94|2021|ESD 112|Not Enrolled|0.52|0.5488
+20406|Lyle School District|15|11.25|0.75|2021|ESD 112|2 Year / CTC|0.15|0.1125
+20406|Lyle School District|15|11.25|0.75|2021|ESD 112|4 Year|0.345|0.25875
+20406|Lyle School District|15|11.25|0.75|2021|ESD 112|Not Enrolled|0.545|0.65875
+25155|Naselle-Grays River Valley School District|51|44.88|0.88|2021|ESD 112|2 Year / CTC|0.34|0.2992
+25155|Naselle-Grays River Valley School District|51|44.88|0.88|2021|ESD 112|4 Year|0.17|0.1496
+25155|Naselle-Grays River Valley School District|51|44.88|0.88|2021|ESD 112|Not Enrolled|0.49|0.5512
+18400|North Kitsap School District|458|401|0.875545852|2021|West Sound STEM|2 Year / CTC|0.18|0.15759825336
+18400|North Kitsap School District|458|401|0.875545852|2021|West Sound STEM|4 Year|0.38|0.33270742376
+18400|North Kitsap School District|458|401|0.875545852|2021|West Sound STEM|Not Enrolled|0.44|0.50969432288
+23403|North Mason School District|218|178.978|0.821|2021|West Sound STEM|2 Year / CTC|0.2|0.1642
+23403|North Mason School District|218|178.978|0.821|2021|West Sound STEM|4 Year|0.16|0.13136
+23403|North Mason School District|218|178.978|0.821|2021|West Sound STEM|Not Enrolled|0.64|0.70444
+25101|Ocean Beach School District|87|61.77|0.71|2021|ESD 112|2 Year / CTC|0.17|0.1207
+25101|Ocean Beach School District|87|61.77|0.71|2021|ESD 112|4 Year|0.13|0.0923
+25101|Ocean Beach School District|87|61.77|0.71|2021|ESD 112|Not Enrolled|0.7|0.787
+05121|Port Angeles School District|280|236|0.842857143|2021|West Sound STEM|2 Year / CTC|0.19|0.16014285717
+05121|Port Angeles School District|280|236|0.842857143|2021|West Sound STEM|4 Year|0.24|0.20228571432
+05121|Port Angeles School District|280|236|0.842857143|2021|West Sound STEM|Not Enrolled|0.58|0.64599999994
+16050|Port Townsend School District|96|85.632|0.892|2021|West Sound STEM|2 Year / CTC|0.12|0.10704
+16050|Port Townsend School District|96|85.632|0.892|2021|West Sound STEM|4 Year|0.42|0.37464
+16050|Port Townsend School District|96|85.632|0.892|2021|West Sound STEM|Not Enrolled|0.46|0.51832
+16048|Quilcene School District|25|21.875|0.875|2021|West Sound STEM|2 Year / CTC|0.24|0.21
+16048|Quilcene School District|25|21.875|0.875|2021|West Sound STEM|4 Year|0.25|0.21875
+16048|Quilcene School District|25|21.875|0.875|2021|West Sound STEM|Not Enrolled|0.51|0.57125
+05323|Sequim School District|233|198.982|0.854|2021|West Sound STEM|2 Year / CTC|0.15|0.1281
+05323|Sequim School District|233|198.982|0.854|2021|West Sound STEM|4 Year|0.34|0.29036
+05323|Sequim School District|233|198.982|0.854|2021|West Sound STEM|Not Enrolled|0.51|0.58154
+18402|South Kitsap School District|707|609|0.861386139|2021|West Sound STEM|2 Year / CTC|0.17|0.14643564363
+18402|South Kitsap School District|707|609|0.861386139|2021|West Sound STEM|4 Year|0.24|0.20673267336
+18402|South Kitsap School District|707|609|0.861386139|2021|West Sound STEM|Not Enrolled|0.6|0.6554455444
+30303|Stevenson-Carson School District|53|46.11|0.87|2021|ESD 112|2 Year / CTC|0.18|0.1566
+30303|Stevenson-Carson School District|53|46.11|0.87|2021|ESD 112|4 Year|0.23|0.2001
+30303|Stevenson-Carson School District|53|46.11|0.87|2021|ESD 112|Not Enrolled|0.59|0.6433
+20400|Trout Lake School District|14|11.662|0.833|2021|ESD 112|2 Year / CTC|0.13|0.10829
+20400|Trout Lake School District|14|11.662|0.833|2021|ESD 112|4 Year|0.53|0.44149
+20400|Trout Lake School District|14|11.662|0.833|2021|ESD 112|Not Enrolled|0.35|0.45855
+17406|Tukwila School District|203|173.768|0.856|2021|Puget Sound ESD|2 Year / CTC|0.25|0.214
+17406|Tukwila School District|203|173.768|0.856|2021|Puget Sound ESD|4 Year|0.35|0.2996
+17406|Tukwila School District|203|173.768|0.856|2021|Puget Sound ESD|Not Enrolled|0.4|0.4864
+35200|Wahkiakum School District|46|43.654|0.949|2021|ESD 112|2 Year / CTC|0.19|0.18031
+35200|Wahkiakum School District|46|43.654|0.949|2021|ESD 112|4 Year|0.23|0.21827
+35200|Wahkiakum School District|46|43.654|0.949|2021|ESD 112|Not Enrolled|0.59|0.61091
+36140|Walla Walla Public Schools|390|366|0.938461538|2021|United Way of the Blue Mountains|2 Year / CTC|0.29|0.27215384602
+36140|Walla Walla Public Schools|390|366|0.938461538|2021|United Way of the Blue Mountains|4 Year|0.27|0.25338461526
+36140|Walla Walla Public Schools|390|366|0.938461538|2021|United Way of the Blue Mountains|Not Enrolled|0.44|0.47446153872
+20405|White Salmon Valley School District|104|97.76|0.94|2021|ESD 112|2 Year / CTC|0.07|0.0658
+20405|White Salmon Valley School District|104|97.76|0.94|2021|ESD 112|4 Year|0.3|0.282
+20405|White Salmon Valley School District|104|97.76|0.94|2021|ESD 112|Not Enrolled|0.64|0.6616
+18303|Bainbridge Island School District|377|356|0.944297082|2022|West Sound STEM|2 Year / CTC|0.1|0.0944297082
+18303|Bainbridge Island School District|377|356|0.944297082|2022|West Sound STEM|4 Year|0.66|0.62323607412
+18303|Bainbridge Island School District|377|356|0.944297082|2022|West Sound STEM|Not Enrolled|0.24|0.28233421768
+05401|Cape Flattery School District|27|24.624|0.912|2022|West Sound STEM|2 Year / CTC|0.27|0.24624
+05401|Cape Flattery School District|27|24.624|0.912|2022|West Sound STEM|4 Year|0.18|0.16416
+05401|Cape Flattery School District|27|24.624|0.912|2022|West Sound STEM|Not Enrolled|0.55|0.5896
+08401|Castle Rock School District|106|91.16|0.86|2022|ESD 112|2 Year / CTC|0.23|0.1978
+08401|Castle Rock School District|106|91.16|0.86|2022|ESD 112|4 Year|0.16|0.1376
+08401|Castle Rock School District|106|91.16|0.86|2022|ESD 112|Not Enrolled|0.61|0.6646
+18401|Central Kitsap School District|916|821|0.89628821|2022|West Sound STEM|2 Year / CTC|0.25|0.2240720525
+18401|Central Kitsap School District|916|821|0.89628821|2022|West Sound STEM|4 Year|0.26|0.2330349346
+18401|Central Kitsap School District|916|821|0.89628821|2022|West Sound STEM|Not Enrolled|0.49|0.5428930129
+36250|College Place School District|126|122.8752|0.9752|2022|United Way of the Blue Mountains|2 Year / CTC|0.29|0.282808
+36250|College Place School District|126|122.8752|0.9752|2022|United Way of the Blue Mountains|4 Year|0.22|0.214544
+36250|College Place School District|126|122.8752|0.9752|2022|United Way of the Blue Mountains|Not Enrolled|0.49|0.502648
+05313|Crescent School District|22|18.128|0.824|2022|West Sound STEM|2 Year / CTC|0.35|0.2884
+05313|Crescent School District|22|18.128|0.824|2022|West Sound STEM|4 Year|0.08|0.06592
+05313|Crescent School District|22|18.128|0.824|2022|West Sound STEM|Not Enrolled|0.57|0.64568
+07002|Dayton School District|25|19|0.76|2022|United Way of the Blue Mountains|2 Year / CTC|0.22|0.1672
+07002|Dayton School District|25|19|0.76|2022|United Way of the Blue Mountains|4 Year|0.28|0.2128
+07002|Dayton School District|25|19|0.76|2022|United Way of the Blue Mountains|Not Enrolled|0.5|0.62
+17210|Federal Way School District|1618|1438|0.888751545|2022|Puget Sound ESD|2 Year / CTC|0.19|0.16886279355
+17210|Federal Way School District|1618|1438|0.888751545|2022|Puget Sound ESD|4 Year|0.32|0.2844004944
+17210|Federal Way School District|1618|1438|0.888751545|2022|Puget Sound ESD|Not Enrolled|0.49|0.54673671205
+17401|Highline School District|1349|1172|0.868791698|2022|Puget Sound ESD|2 Year / CTC|0.23|0.19982209054
+17401|Highline School District|1349|1172|0.868791698|2022|Puget Sound ESD|4 Year|0.32|0.27801334336
+17401|Highline School District|1349|1172|0.868791698|2022|Puget Sound ESD|Not Enrolled|0.45|0.5221645661
+06098|Hockinson School District|170|163.71|0.963|2022|ESD 112|2 Year / CTC|0.23|0.22149
+06098|Hockinson School District|170|163.71|0.963|2022|ESD 112|4 Year|0.33|0.31779
+06098|Hockinson School District|170|163.71|0.963|2022|ESD 112|Not Enrolled|0.44|0.46072
+08402|Kalama School District|97|84.39|0.87|2022|ESD 112|2 Year / CTC|0.26|0.2262
+08402|Kalama School District|97|84.39|0.87|2022|ESD 112|4 Year|0.12|0.1044
+08402|Kalama School District|97|84.39|0.87|2022|ESD 112|Not Enrolled|0.62|0.6694
+20406|Lyle School District|19|11.02|0.58|2022|ESD 112|2 Year / CTC|0.15|0.087
+20406|Lyle School District|19|11.02|0.58|2022|ESD 112|4 Year|0.345|0.2001
+20406|Lyle School District|19|11.02|0.58|2022|ESD 112|Not Enrolled|0.545|0.7361
+25155|Naselle-Grays River Valley School District|24|20.568|0.857|2022|ESD 112|2 Year / CTC|0.28|0.23996
+25155|Naselle-Grays River Valley School District|24|20.568|0.857|2022|ESD 112|4 Year|0.24|0.20568
+25155|Naselle-Grays River Valley School District|24|20.568|0.857|2022|ESD 112|Not Enrolled|0.49|0.56293
+18400|North Kitsap School District|438|401|0.915525114|2022|West Sound STEM|2 Year / CTC|0.18|0.16479452052
+18400|North Kitsap School District|438|401|0.915525114|2022|West Sound STEM|4 Year|0.44|0.40283105016
+18400|North Kitsap School District|438|401|0.915525114|2022|West Sound STEM|Not Enrolled|0.37|0.42321917818
+23403|North Mason School District|203|167|0.822660099|2022|West Sound STEM|2 Year / CTC|0.15|0.12339901485
+23403|North Mason School District|203|167|0.822660099|2022|West Sound STEM|4 Year|0.18|0.14807881782
+23403|North Mason School District|203|167|0.822660099|2022|West Sound STEM|Not Enrolled|0.67|0.72852216733
+25101|Ocean Beach School District|86|64.672|0.752|2022|ESD 112|2 Year / CTC|0.05|0.0376
+25101|Ocean Beach School District|86|64.672|0.752|2022|ESD 112|4 Year|0.22|0.16544
+25101|Ocean Beach School District|86|64.672|0.752|2022|ESD 112|Not Enrolled|0.73|0.79696
+05121|Port Angeles School District|292|242|0.828767123|2022|West Sound STEM|2 Year / CTC|0.21|0.17404109583
+05121|Port Angeles School District|292|242|0.828767123|2022|West Sound STEM|4 Year|0.28|0.23205479444
+05121|Port Angeles School District|292|242|0.828767123|2022|West Sound STEM|Not Enrolled|0.52|0.60219178096
+16050|Port Townsend School District|138|118.68|0.86|2022|West Sound STEM|2 Year / CTC|0.16|0.1376
+16050|Port Townsend School District|138|118.68|0.86|2022|West Sound STEM|4 Year|0.35|0.301
+16050|Port Townsend School District|138|118.68|0.86|2022|West Sound STEM|Not Enrolled|0.49|0.5614
+36402|Prescott School District|17|12.75|0.75|2022|United Way of the Blue Mountains|2 Year / CTC|0.43|0.3225
+36402|Prescott School District|17|12.75|0.75|2022|United Way of the Blue Mountains|4 Year|0.28|0.21
+36402|Prescott School District|17|12.75|0.75|2022|United Way of the Blue Mountains|Not Enrolled|0.3|0.475
+16048|Quilcene School District|25|21.75|0.87|2022|West Sound STEM|2 Year / CTC|0.12|0.1044
+16048|Quilcene School District|25|21.75|0.87|2022|West Sound STEM|4 Year|0.28|0.2436
+16048|Quilcene School District|25|21.75|0.87|2022|West Sound STEM|Not Enrolled|0.6|0.652
+05323|Sequim School District|208|155.168|0.746|2022|West Sound STEM|2 Year / CTC|0.23|0.17158
+05323|Sequim School District|208|155.168|0.746|2022|West Sound STEM|4 Year|0.33|0.24618
+05323|Sequim School District|208|155.168|0.746|2022|West Sound STEM|Not Enrolled|0.45|0.5897
+18402|South Kitsap School District|674|576|0.854599407|2022|West Sound STEM|2 Year / CTC|0.18|0.15382789326
+18402|South Kitsap School District|674|576|0.854599407|2022|West Sound STEM|4 Year|0.19|0.16237388733
+18402|South Kitsap School District|674|576|0.854599407|2022|West Sound STEM|Not Enrolled|0.63|0.68379821941
+30303|Stevenson-Carson School District|52|34.84|0.67|2022|ESD 112|2 Year / CTC|0.13|0.0871
+30303|Stevenson-Carson School District|52|34.84|0.67|2022|ESD 112|4 Year|0.29|0.1943
+30303|Stevenson-Carson School District|52|34.84|0.67|2022|ESD 112|Not Enrolled|0.58|0.7186
+20400|Trout Lake School District|13|10.218|0.786|2022|ESD 112|2 Year / CTC|0.09|0.07074
+20400|Trout Lake School District|13|10.218|0.786|2022|ESD 112|4 Year|0.55|0.4323
+20400|Trout Lake School District|13|10.218|0.786|2022|ESD 112|Not Enrolled|0.36|0.49696
+17406|Tukwila School District|195|174|0.892307692|2022|Puget Sound ESD|2 Year / CTC|0.25|0.223076923
+17406|Tukwila School District|195|174|0.892307692|2022|Puget Sound ESD|4 Year|0.24|0.21415384608
+17406|Tukwila School District|195|174|0.892307692|2022|Puget Sound ESD|Not Enrolled|0.51|0.56276923092
+35200|Wahkiakum School District|48|44.16|0.92|2022|ESD 112|2 Year / CTC|0.16|0.1472
+35200|Wahkiakum School District|48|44.16|0.92|2022|ESD 112|4 Year|0.17|0.1564
+35200|Wahkiakum School District|48|44.16|0.92|2022|ESD 112|Not Enrolled|0.67|0.6964
+36140|Walla Walla Public Schools|442|423|0.957013575|2022|United Way of the Blue Mountains|2 Year / CTC|0.28|0.267963801
+36140|Walla Walla Public Schools|442|423|0.957013575|2022|United Way of the Blue Mountains|4 Year|0.3|0.2871040725
+36140|Walla Walla Public Schools|442|423|0.957013575|2022|United Way of the Blue Mountains|Not Enrolled|0.42|0.4449321265
+20405|White Salmon Valley School District|77|67.298|0.874|2022|ESD 112|2 Year / CTC|0.07|0.06118
+20405|White Salmon Valley School District|77|67.298|0.874|2022|ESD 112|4 Year|0.26|0.22724
+20405|White Salmon Valley School District|77|67.298|0.874|2022|ESD 112|Not Enrolled|0.67|0.71158
+05402|Quillayute Valley School District|0|0||2014|West Sound STEM|2 Year / CTC|0.19|
+05402|Quillayute Valley School District|0|0||2014|West Sound STEM|4 Year|0.21|
+05402|Quillayute Valley School District|0|0||2014|West Sound STEM|Not Enrolled|0.6|
+05402|Quillayute Valley School District|76|57|0.75|2015|West Sound STEM|2 Year / CTC|0.26|0.195
+05402|Quillayute Valley School District|76|57|0.75|2015|West Sound STEM|4 Year|0.11|0.0825
+05402|Quillayute Valley School District|76|57|0.75|2015|West Sound STEM|Not Enrolled|0.63|0.7225
+05402|Quillayute Valley School District|0|0||2016|West Sound STEM|2 Year / CTC|0.29|
+05402|Quillayute Valley School District|0|0||2016|West Sound STEM|4 Year|0.13|
+05402|Quillayute Valley School District|0|0||2016|West Sound STEM|Not Enrolled|0.58|
+05402|Quillayute Valley School District|81|67|0.827160493827161|2017|West Sound STEM|2 Year / CTC|0.23|0.190246913580247
+05402|Quillayute Valley School District|81|67|0.827160493827161|2017|West Sound STEM|4 Year|0.21|0.173703703703704
+05402|Quillayute Valley School District|81|67|0.827160493827161|2017|West Sound STEM|Not Enrolled|0.56|0.636049382716049
+05402|Quillayute Valley School District|77|64|0.831168831168831|2018|West Sound STEM|2 Year / CTC|0.23|0.191168831168831
+05402|Quillayute Valley School District|77|64|0.831168831168831|2018|West Sound STEM|4 Year|0.13|0.108051948051948
+05402|Quillayute Valley School District|77|64|0.831168831168831|2018|West Sound STEM|Not Enrolled|0.64|0.700779220779221
+05402|Quillayute Valley School District|0|0||2019|West Sound STEM|2 Year / CTC|0.36|
+05402|Quillayute Valley School District|0|0||2019|West Sound STEM|4 Year|0.18|
+05402|Quillayute Valley School District|0|0||2019|West Sound STEM|Not Enrolled|0.46|
+05402|Quillayute Valley School District|72|62|0.861111111111111|2020|West Sound STEM|2 Year / CTC|0.21|0.180833333333333
+05402|Quillayute Valley School District|72|62|0.861111111111111|2020|West Sound STEM|4 Year|0.15|0.129166666666667
+05402|Quillayute Valley School District|72|62|0.861111111111111|2020|West Sound STEM|Not Enrolled|0.65|0.698611111111111
+05402|Quillayute Valley School District|83|64|0.771084337349398|2021|West Sound STEM|2 Year / CTC|0.32|0.246746987951807
+05402|Quillayute Valley School District|83|64|0.771084337349398|2021|West Sound STEM|4 Year|0.15|0.11566265060241
+05402|Quillayute Valley School District|83|64|0.771084337349398|2021|West Sound STEM|Not Enrolled|0.53|0.637590361445783
+05402|Quillayute Valley School District|0|0||2022|West Sound STEM|2 Year / CTC|0.33|
+05402|Quillayute Valley School District|0|0||2022|West Sound STEM|4 Year|0.13|
+05402|Quillayute Valley School District|0|0||2022|West Sound STEM|Not Enrolled|0.54|
