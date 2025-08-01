@@ -9,7 +9,7 @@ Washington STEM also provides technical assistance to regional partners as they 
 ### Data specific inquiries: impact@washingtonstem.org
 
 ## R Script
-### Last updated 7/25/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
+### Last updated 8/1/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
 ### Code of Conduct: 
 These templates are designed to help researchers and educators improve equitable
 postsecondary readiness by better understanding patterns between high school experiences and
