@@ -29,11 +29,11 @@ https://github.com/WashingtonSTEM/Horizons_Public
 #### The script notes action items where relevant. At the start of the script, you will need to set the current year and base directory. 
 
 ### 1.Data Folder:
-Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory in a parent folder named Horizons to easily run the script. The script notes download links for raw data.
+Contains subfolders of all raw and processed data needed to run scripts and connect to workbook. Mirror the folder structure in your directory in a parent folder named "Horizons" to easily run the script. The script notes download links for raw data.
 
-### General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. 
+### General overview: This template includes crosswalks specific to the Horizons Regional Partners. The script also excludes online schools. You may need to update crosswalks and excluded schools to fit your use case. *See Dataflow_Overview.xlsx for visual guide of script*
 #### For any questions, please email impact@washingtonstem.org
-1. Create the following folders in a local directory you would like to read and write data to. Add folders for additional years as relevant.
+1. Create the following folders in a local directory you would like to read and write data to. Add folders under Raw_Data and Cleaned_Data for additional years as relevant.
 * Horizons/1.Data/Raw_Data/2025_Exports
 * Horizons/1.Data/Cleaned_Data/2024
 * Horizons/1.Data/Cleaned_Data/2025
@@ -55,19 +55,17 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
     C) Found in 1.Data/Raw_Data/2025_Exports of this repo -> save to your local 'Horizons/1.Data/Raw_Data/2025' folder
     * FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx
   
-3. Download raw data for 2025 (& additional years as needed), as noted in the script and save to your local 'Horizons/1.Data/Raw_Data/2025' folder.
+3. Download raw data for 2025 (& additional years as needed), as noted in the script. Save the raw data to *1.Data/Raw_Data/2025_Exports* (& additional years as needed).
    
-5. Save the raw data to *1.Data/Raw_Data/2025_Exports* (& additional years as needed).
+4. Update the current year in the script. Update the base directory in the script to match yours. *If needing to run multiple years (2025, + 2026, etc) use the script to run one year at a time to properly build prior year data sets.*
    
-6. Update the current year in the script. Update the base directory in the script to match yours. *If needing to run multiple years (2025, + 2026, etc) use the script to run one year at a time to properly build prior year data sets.*
-   
-7. Make needed updates to the script, noted throughout the script as "Action Items". Run start to finish. See console notes and *Review Step* at the end of the script for quality check. As needed, make changes and rerun script.
+5. Make needed updates to the script, noted throughout the script as "Action Items". Run start to finish. See console notes and *Review Step* at the end of the script for quality check. As needed, make changes and rerun script.
    ## Potential updates needed, noted as "Action items":
    * Review the *Check for changed column names and update as needed, then run remainder of script* ouptut and add code to need rename columns immeditaly after reading in new file to ensure script works properly.
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
-8. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update footnotes in dashboard as needed. Save your own version of the workbook! #DRAFT - DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
+6. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update footnotes in dashboard as needed. Save your own version of the workbook! #DRAFT - DASHBOARD WILL BE UPLOADED TO REPO EARLY AUGUST
 
 
 # Learn more:
