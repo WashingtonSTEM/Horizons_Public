@@ -65,7 +65,7 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
    * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
-6. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update footnotes in dashboard as needed. Save your own version of the workbook!
+6. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update data note text in workbook as needed. Save your own version of the workbook!
 
 
 # Learn more:
