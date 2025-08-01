@@ -69,6 +69,6 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
 
 
 # Learn more:
-To dive deeper into the student experiences and adult biases which impact postsecondary transitions, explore our H2P work: https://github.com/WashingtonSTEM/H2P_Public/edit/main/README.md
+To dive deeper into the student experiences and adult biases which impact postsecondary transitions, explore our H2P work: https://github.com/WashingtonSTEM/H2P_Public/
 * Latest blog: https://washingtonstem.org/schools-are-reimaging-postsecondary-pathways/
 * High School to Postsecondary collaborative toolkit (2024): https://washingtonstem.org/college-and-career-readiness-toolkit/
