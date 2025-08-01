@@ -27,7 +27,7 @@ library(here)
 currentyear <- 2025
 
 # **ACTION ITEM**: Update to match your setup. For example, base_dir <- "path/to/your/folder/"
-base_dir <- " / /"
+base_dir <- "C:/Users/..../"
 
 # Define file paths dynamically
 output_dir <- file.path(base_dir, "Horizons", "1.Data", "Cleaned_Data", paste0(currentyear))
@@ -239,15 +239,15 @@ join_to_hrp <- function(df,
 ```
 # Load Crosswalks
 ```{r}
-Crosswalk_FAFSA <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="School District Names") 
+Crosswalk_FAFSA <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="School District Names") 
 ## Clean duplicated column names
 Crosswalk_FAFSA <- Crosswalk_FAFSA[, !duplicated(names(Crosswalk_FAFSA))]
 Crosswalk_FAFSA <- fix_district_code(Crosswalk_FAFSA, column_name = "District.Code")
 
-Crosswalk_PS <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="Horizon") %>% select(District.Code, SchoolCode, ERDC.SchoolTTL, ERDC.DistrictTTL, Horizons.Partner) %>% drop_na(Horizons.Partner) %>% distinct() 
+Crosswalk_PS <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="Horizon") %>% select(District.Code, SchoolCode, ERDC.SchoolTTL, ERDC.DistrictTTL, Horizons.Partner) %>% drop_na(Horizons.Partner) %>% distinct() 
 Crosswalk_PS <- fix_district_code(Crosswalk_PS, column_name = "District.Code") 
 
-Crosswalk_PS_Demo <- read.xlsx(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="PS_Region") %>%
+Crosswalk_PS_Demo <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="PS_Region") %>%
   distinct(INST_IPEDS,`ERDC`,Horizon) %>%
   filter(!is.na(`Horizon`)) %>%
   mutate(`ERDC`=if_else(nchar(`ERDC`)<4,toupper(`ERDC`),str_to_title(`ERDC`)))
@@ -261,7 +261,7 @@ Crosswalk_K12 <- Crosswalk_PS %>% select(-ERDC.SchoolTTL)
 
 ### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
 ```{r}
-compare_column_names("RC_Enrollment.csv")
+#compare_column_names("RC_Enrollment.csv")
 ```
 
 ```{r} 
@@ -343,7 +343,7 @@ FAFSA_21_current <- read.xlsx(file.path(base_dir,"Horizons/1.Data/Raw_Data", pas
   ## clean 2014-2015 to 2014-15
   mutate(High.School.Academic.Year = sub("^(//d{4})-//d{2}(//d{2})$", "//1-//2", High.School.Academic.Year)) 
 ## *Note: does not include Insight SD*
-FAFSA_13_23 <- read.csv(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","FAFSA 10yrs.csv")) 
+FAFSA_13_23 <- read.csv(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","FAFSA 10yrs.csv")) 
 FAFSA_13_23 <- fix_district_code(FAFSA_13_23, column_name = "District.Code")
      
 # Modify Enrollment_HRP_12Final to match to FAFSA data
@@ -453,7 +453,7 @@ write_dashboard_file(WSAC_FAFSA, "WSAC-FAFSA Completion.xlsx",output_dir)
 
 ### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
 ```{r}
-compare_column_names("RC_Graduation.csv")
+#compare_column_names("RC_Graduation.csv")
 ```
 
 ```{r}
@@ -553,6 +553,16 @@ Horizon_Grads_Prior <- fix_district_code(read_delim(
 RC_Grad_Final <- combine_years(RC_Grad_New_HP, RC_Grad_Prior)
 Horizon_Grads_Final <- combine_years(Horizon_Grads_New, Horizon_Grads_Prior) 
 
+#Replace null final cohort and graduates with estimated from enrollment data
+Enrollment_HRP_12_ALL <- Enrollment_HRP_12Final %>% select(SchoolYear,DistrictCode,All.Students)
+
+Horizon_Grads_Final <- Horizon_Grads_Final %>%
+  left_join(Enrollment_HRP_12_ALL, by = c("SchoolYear", "DistrictCode")) %>%
+  mutate(
+    FinalCohort = if_else(is.na(FinalCohort), All.Students, FinalCohort),
+    Graduate = if_else(is.na(Graduate), FinalCohort * GraduationRate, Graduate)
+  ) %>% select(-All.Students)
+
 ### Write outputs
 write_dashboard_file(RC_Grad_Final,"RC_Graduation_Clean.csv",dashboard_dir)
 write_dashboard_file(RC_Grad_Final,"RC_Graduation_Clean.csv",output_dir)
@@ -568,7 +578,7 @@ write_dashboard_file(Horizon_Grads_Final,"Horizon_Graduates.csv",output_dir)
 
 ### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
 ```{r}
-## currently deactivated bc not saved to prior year folder due to this being new data processing
+## currently deactivated bc nothing saved to prior year folder due to this being new data processing
 # compare_column_names("Enrollment_by_Institution.csv")
 # compare_column_names("First_Year_Enrollment.csv")
 ```
@@ -797,7 +807,8 @@ write_dashboard_file(SankeyDataModel_Final,"SankeyDataModel.xlsx",output_dir)
 
 ### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
 ```{r}
-compare_column_names("RC_SQSS.csv")
+## currently deactivated bc nothing saved to prior year folder due to this being new data processing
+#compare_column_names("RC_SQSS.csv")
 ```
 
 ```{r}
@@ -892,7 +903,7 @@ write_dashboard_file(RC_SQSS_Final,"RC_SQSS_Clean.csv",output_dir)
 ## adding IPEDS data to EACH Horizons partner that, users will see any institutions students attend from their network
 
 # Read in data
-PSIPEDS <- read.csv(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","2023_IPEDS_long.csv")) %>% mutate(institution.name=gsub("\\.", " ", institution.name)) %>%
+PSIPEDS <- read.csv(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","2023_IPEDS_long.csv")) %>% mutate(institution.name=gsub("\\.", " ", institution.name)) %>%
   mutate(institution.name=if_else(nchar(institution.name)<4,toupper(institution.name),str_to_title(institution.name))) 
 
 # Crosswalk to HRP
