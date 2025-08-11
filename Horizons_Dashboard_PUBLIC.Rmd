@@ -1,0 +1,1120 @@
+---
+title: "WSI_Horizons_Dashboard"
+author: "Mikel Poppe, Rachel Tavolacci"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE   # suppress all warnings from being printed in output
+)
+```
+# Download needed packages
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+library(readxl)
+library(openxlsx)
+library(stringr)
+library(here)
+```
+# **ACTION ITEM**:*Update currentyear parameter (current year of newly exported data) and set base_dir to match the folder you want to read and write to.*
+```{r}
+# **ACTION ITEM**: Update currentyear as needed
+currentyear <- 2025
+
+# **ACTION ITEM**: Update to match your setup. For example, base_dir <- "path/to/your/folder/"
+base_dir <- "C:/Users/..../"
+
+# Define file paths dynamically
+output_dir <- file.path(base_dir, "Horizons", "1.Data", "Cleaned_Data", paste0(currentyear))
+dashboard_dir <- file.path(base_dir, "Horizons","1.Data", "Dashboard_Files")
+```
+# Functions to streamline data prep
+```{r}
+# Function to write files
+write_dashboard_file <- function(data, filename, folder) {
+  file_path <- file.path(folder, filename)
+  ext <- tools::file_ext(filename)
+
+  if (ext == "csv" || ext == "txt") {
+    write.table(data, file = file_path, append = FALSE, quote = FALSE, sep = "|",
+                eol = "\n", na = "", dec = ".", row.names = FALSE, col.names = TRUE)
+  } else if (ext == "xlsx") {
+    write.xlsx(data, file = file_path, overwrite = TRUE)
+    # OR: writexl::write_xlsx(data, path = file_path)
+  } else {
+    stop("Unsupported file type: must be .csv, .txt, or .xlsx")
+  }
+} 
+
+# Function to compare column names between most recent and prior extract
+compare_column_names <- function(filename) {
+  ## Build file paths using existing currentyear and base_dir
+  current_path <- file.path(base_dir, "Horizons/1.Data/Raw_Data", paste0(currentyear, "_Exports"), filename)
+  previous_path <- file.path(base_dir, "Horizons/1.Data/Raw_Data", paste0(currentyear - 1, "_Exports"), filename)
+  
+  ## Read in both files
+  if (!file.exists(current_path)) stop(paste("File not found:", current_path))
+  if (!file.exists(previous_path)) stop(paste("File not found:", previous_path))
+  
+  current_names <- names(read.csv(current_path, nrows = 1))
+  previous_names <- names(read.csv(previous_path, nrows = 1))
+  
+  ## Compare names
+  added_cols <- setdiff(current_names, previous_names)
+  removed_cols <- setdiff(previous_names, current_names)
+  
+  ## Build tibble with results
+  col_changes_df <- tibble::tibble(
+    Change_Type = c(rep("Added", length(added_cols)), rep("Removed", length(removed_cols))),
+    Column_Name = c(added_cols, removed_cols)
+  )
+  
+  ## Print if there are changes
+  if (nrow(col_changes_df) == 0) {
+    message("✅ No changes in column names between years.")
+  } else {
+    print(col_changes_df)
+  }
+  
+  ## Return the tibble in case user wants to assign it
+  invisible(col_changes_df)
+}
+
+# Function to clean any improper redacted ranges
+clean_redacted_pct <- function(df, column = "RedactedPct") {
+
+  ## Ensure the column exists
+  if (!column %in% names(df)) {
+    stop(paste("Column", column, "not found in the dataframe"))
+  }
+  
+  ## Apply replacements **ACTION ITEM**: Add more cleaned ranges here as needed.
+  df <- df %>%
+    mutate(
+      RedactedPct = case_when(
+        !!sym(column) == "4-Mar"  ~ "3-4",
+        !!sym(column) == "9-Jun"  ~ "6-9",
+        !!sym(column) == "19-Nov" ~ "11-19",
+        !!sym(column) == "14-Oct" ~ "10-14",
+        !!sym(column) == "9-May"  ~ "5-9",
+        TRUE ~ !!sym(column)
+      )
+    )
+  
+  ## Identify problematic values containing letters
+  bad_values <- df %>%
+    filter(str_detect(!!sym("RedactedPct"), "[A-Za-z]")) %>%
+    pull(RedactedPct) %>%
+    unique()
+  
+  if (length(bad_values) > 0) {
+    message("⚠️ Values in RedactedPct containing letters (possible issues):")
+    print(bad_values)
+  } else {
+    message("✅ No letter-containing values found in RedactedPct_")
+  }
+  
+  return(df)
+}
+
+# Function to add missing leading 0 to district code
+fix_district_code <- function(df, column_name = "DistrictCode") {
+  ## Check if column exists
+  if (!column_name %in% names(df)) {
+    stop(paste("Column", column_name, "not found in dataframe."))
+  }
+  
+  ## Pad district code with leading zeros to ensure 5 characters
+  df[[column_name]] <- str_pad(as.character(df[[column_name]]), width = 5, pad = "0")
+  
+  return(df)
+}
+
+# Function to clean column types, then combine prior year data with most recent
+## Function to ensure key columns are character type
+make_character <- function(df) {
+  char_cols <- c(
+    "SchoolYear", "DistrictCode", "District.Code", "ERDC.DistrictTTL",
+    "Horizons.Partner", "GradeLevel", "Demographic.Group", "Gradelevel",
+    "Demographic.Subgroup", "DistrictOrganizationId", "CohortYearTTL", "SchoolCode"
+  )
+  
+  for (col in char_cols) {
+    if (col %in% colnames(df)) {
+      df[[col]] <- as.character(df[[col]])
+    }
+  }
+  return(df)
+}
+
+# Function to combine prior and current year data
+combine_years <- function(prior_df, current_df) {
+  bind_rows(
+    make_character(prior_df),
+    make_character(current_df)
+  )
+}
+
+# Function to group demographic subgroups
+add_demographic_columns <- function(df) {
+  df %>%
+    mutate(
+      Demographic.Group = case_when(
+        Name %in% c("Female", "Gender.X", "Male") ~ "Gender",
+        Name %in% c(
+          "American.Indian..Alaskan.Native","American Indian Alaskan Native","American.Indian.Alaskan.Native","Asian","Black African American","Black..African.American", "Black.African.American",
+          "Hispanic..Latino.of.any.race.s.", "Hispanic.Latino.of.any.race.s.",  "Native.Hawaiian..Other.Pacific.Islander", "Native.Hawaiian.Other.Pacific.Islander",
+          "Two.or.More.Races", "White", "Hispanic Latino of any race s", "Hispanic.Latino.of.any.race.s."
+        ) ~ "Race/Ethnicity",
+        TRUE ~ "Additional Categories"
+      ),
+      Demographic.Subgroup = Name %>%
+        str_replace_all("\\.\\.", " ") %>%
+        str_replace_all("\\.", " ") %>%
+        str_replace_all("  ", " ") %>%
+        str_trim()
+    ) %>%
+    select(-Name)  # Drops the original Name column
+}
+
+# Function to filter final files to only HRP, deactivate if desired to see all schools
+filter_horizons_partners <- function(df) {
+  if (!"Horizons.Partner" %in% names(df)) return(df)
+  
+  df %>%
+    filter(Horizons.Partner %in% c(
+      "ESD 112", "Puget Sound ESD", "United Way of the Blue Mountains", "West Sound STEM"
+    ))
+}
+
+# Function to join a dataset to a crosswalk and filter to valid Horizons Partners
+#' @param df The input data frame
+#' @param crosswalk The crosswalk data frame (e.g., Crosswalk_K12 or Crosswalk_PS)
+#' @param by_column The column name in `df` to join on (e.g., "DistrictCode")
+#' @param crosswalk_column The column name in `crosswalk` to join on (e.g., "District.Code")
+#' @param keep_cols Optional: character vector of additional columns to keep from the crosswalk (e.g., ERDC.DistrictTTL)
+#' @param filter_to_hrp Logical, whether to filter down to the standard Horizons Partners
+#' @return The joined (and optionally filtered) data frame
+join_to_hrp <- function(df,
+                        crosswalk,
+                        by_column = "DistrictCode",
+                        crosswalk_column = "District.Code",
+                        keep_cols = c("Horizons.Partner"),
+                        filter_to_hrp = TRUE) {
+
+  ## Ensure all join keys are character
+  df <- df %>%
+    mutate(across(all_of(by_column), as.character))
+
+  crosswalk <- crosswalk %>%
+    mutate(across(all_of(crosswalk_column), as.character))
+
+  ## Remove keep_cols from df if they exist to avoid duplicates
+  df <- df %>% select(-any_of(keep_cols))
+
+  ## Select only needed columns from crosswalk
+  crosswalk_trimmed <- crosswalk %>%
+    select(all_of(c(crosswalk_column, keep_cols))) %>%
+    distinct()
+
+  ## Do the join
+  joined_df <- df %>%
+    left_join(
+      crosswalk_trimmed,
+      by = setNames(c(crosswalk_column), by_column)
+    )
+
+  ## Optional: filter to HRP
+  if (filter_to_hrp) {
+    joined_df <- filter_horizons_partners(joined_df)
+  }
+
+  return(joined_df)
+}
+```
+# Load Crosswalks
+```{r}
+Crosswalk_FAFSA <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="School District Names") 
+## Clean duplicated column names
+Crosswalk_FAFSA <- Crosswalk_FAFSA[, !duplicated(names(Crosswalk_FAFSA))]
+Crosswalk_FAFSA <- fix_district_code(Crosswalk_FAFSA, column_name = "District.Code")
+
+Crosswalk_PS <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="Horizon") %>% select(District.Code, SchoolCode, ERDC.SchoolTTL, ERDC.DistrictTTL, Horizons.Partner) %>% drop_na(Horizons.Partner) %>% distinct() 
+Crosswalk_PS <- fix_district_code(Crosswalk_PS, column_name = "District.Code") 
+
+Crosswalk_PS_Demo <- read.xlsx(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","Regional_Analysis_Crosswalk.xlsx"),sheet="PS_Region") %>%
+  distinct(INST_IPEDS,`ERDC`,Horizon) %>%
+  filter(!is.na(`Horizon`)) %>%
+  mutate(`ERDC`=if_else(nchar(`ERDC`)<4,toupper(`ERDC`),str_to_title(`ERDC`)))
+
+Crosswalk_K12 <- Crosswalk_PS %>% select(-ERDC.SchoolTTL)
+```
+# K12 ENROLLMENT DATA PROCESSING
+## Export most recent 2014-15 to Current Year report card enrollment data and save as RC_Enrollment.csv to yearly export folder.
+
+### [Report Card Enrollment Data Link](https://data.wa.gov/education/Report-Card-Enrollment-from-2014-15-to-Current-Yea/rxjk-6ieq/about_data) 
+
+### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
+```{r}
+#compare_column_names("RC_Enrollment.csv")
+```
+
+```{r} 
+# Read in data, split out QVSD
+RC_Enrollment_New <- fix_district_code(read.csv(file.path(base_dir,"Horizons/1.Data/Raw_Data", paste0(currentyear,"_Exports"),"RC_Enrollment.csv"))) 
+RC_Enrollment_WO_QVSD <- RC_Enrollment_New %>% filter(DistrictCode != "05402") %>% filter(OrganizationLevel=="District")
+## Filter to school level to recreate district totals for QVSD, then rejoin with all other district totals
+RC_Enrollment_W_QVSD <- RC_Enrollment_New %>% filter(DistrictCode == "05402") %>% filter(!(SchoolCode %in% c("5529", "5071")))
+
+RC_Enrollment_Filtered <- RC_Enrollment_W_QVSD %>%
+  filter(
+    OrganizationLevel == "School"
+  ) %>%
+group_by(SchoolYear, DistrictCode, Gradelevel) %>%  # summarize back to district-level
+  summarize(across(`All.Students`:`Students.without.Disabilities`, sum, na.rm = TRUE), .groups = "drop")
+
+RC_Enrollment_Filtered <- bind_rows(RC_Enrollment_Filtered,RC_Enrollment_WO_QVSD) %>% select(-OrganizationLevel, -County, -ESDName, -ESDOrganizationID,-DistrictName,-DistrictOrganizationId,-SchoolCode,-SchoolName,-SchoolOrganizationid,-CurrentSchoolType,-DAT,-DataAsOf)
+
+# Identify student group columns by removing key columns
+Student_groups <- setdiff(
+  colnames(RC_Enrollment_Filtered),
+  c("SchoolYear", "DistrictCode","ERDC.DistrictTTL", "Gradelevel", "All.Students", "Horizons.Partner")
+)
+
+# Pivot the data from wide to long format
+RC_Enrollment_Long <- RC_Enrollment_Filtered %>% 
+  pivot_longer(
+    cols = all_of(Student_groups),
+    names_to = "Name",
+    values_to = "Students"
+  ) 
+
+# Split grades & rejoin
+Enrollment_12 <- RC_Enrollment_Long %>% filter(Gradelevel == "12th Grade") %>% mutate(Gradelevel = paste0("20", substr(SchoolYear, 6, 7), " Cohort"))
+Enrollment_All <- RC_Enrollment_Long %>% filter(Gradelevel == "All Grades") 
+Enrollment_HS <- RC_Enrollment_Long %>% filter(Gradelevel %in% c("9th Grade", "10th Grade", "11th Grade", "12th Grade")) %>% group_by(SchoolYear,DistrictCode, Name) %>% summarize(All.Students = sum(All.Students), Students = sum(Students))  %>%
+  mutate(Gradelevel = "High School")
+Enrollment_binded <- bind_rows(Enrollment_12,Enrollment_All,Enrollment_HS)
+
+# Add in demographic group names
+Enrollment_grouped_demo <- add_demographic_columns(Enrollment_binded)
+
+# Crosswalk to HRP & exclude non HRP
+Enrollment_Final <- join_to_hrp(
+  df = Enrollment_grouped_demo,
+  crosswalk = Crosswalk_K12,
+  by_column = "DistrictCode",
+  crosswalk_column = "District.Code",
+  keep_cols = c("ERDC.DistrictTTL", "Horizons.Partner")
+)
+
+### Write outputs
+write_dashboard_file(Enrollment_Final,"K12_Enrollment_horizons.xlsx",dashboard_dir)
+write_dashboard_file(Enrollment_Final,"K12_Enrollment_horizons.xlsx",output_dir)
+
+Enrollment_12_Current <- RC_Enrollment_Filtered %>% filter(Gradelevel == "12th Grade")
+
+Enrollment_HRP_12Final <- join_to_hrp(
+  df = Enrollment_12_Current,
+  crosswalk = Crosswalk_K12,
+  by_column = "DistrictCode",
+  crosswalk_column = "District.Code",
+  keep_cols = c("ERDC.DistrictTTL", "Horizons.Partner")
+)
+
+write_dashboard_file(Enrollment_HRP_12Final,"HRP_Enrollment_12_2014-15_Current.csv",output_dir)
+```
+# FAFSA DATA PROCESSING. *Uses output from K12 Enrollment Processing chunk*
+### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
+```{r}
+#NA at this time (no prior year, once there is will need to activate this step)
+# compare_column_names("FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx")
+```
+
+```{r}
+# Read in prior FAFSA data
+## *Note: does not include Insight SD*
+FAFSA_13_21 <- read.csv(file.path(base_dir,"Horizons", "1.Data","Cleaned_Data","FAFSA_10_Yr.csv")) %>%
+  #match report date to current wsac file as excel 5 digit number, days since 1900
+ mutate(
+    ReportDate = as.Date(ReportDate, format = "%m/%d/%Y"),
+    ReportDate = as.numeric(ReportDate - as.Date("1899-12-30"))
+  )
+FAFSA_13_21$FAFSA.Completion.Rate <- as.numeric(FAFSA_13_21$FAFSA.Completion.Rate)
+
+# Read in new FAFSA data & K12 enrollment data. 
+## *Note: FAFSA completion rate is provided directly to WASTEM from ERDC. Completion count is calculated using student count from enrollment file. Export contains all prior data with new data added each iteration shared from ERDC (FAFSA_21_current file excludes Insight and Open Doors SD) & doesn't include district code field, that gets added during crosswalk.*
+FAFSA_21_current <- read.xlsx(file.path(base_dir,"Horizons/1.Data/Raw_Data", paste0(currentyear,"_Exports"),"FAFSA Completion by Subgroup Report for Horizons Partnerships.xlsx"),sheet = "FAFSA Completion by Subgroup Re") %>%
+  ## clean 2014-2015 to 2014-15
+  mutate(High.School.Academic.Year = sub("^(//d{4})-//d{2}(//d{2})$", "//1-//2", High.School.Academic.Year)) %>% mutate(FAFSA.Completion.Rate = if_else(FAFSA.Completion.Rate == "Suppressed", '', FAFSA.Completion.Rate))
+FAFSA_21_current$FAFSA.Completion.Rate <- as.numeric(FAFSA_21_current$FAFSA.Completion.Rate) 
+
+FAFSA_21_current <- FAFSA_21_current %>% #Clean names
+  mutate(Program.Partnership = recode(Program.Partnership,
+                                   'West Sound STEM (PREP)' = 'PREP', 'United Way of the Blue Mountains' = 'Elevate','Puget Sound ESD Partnership' = 'PSESD', 'United Way of Blue Mountains' = 'Elevate', 'ESD 112 Partnership' = 'ESD 112'
+)) %>% mutate(Region.Name = recode(Region.Name,
+                                   'West Sound STEM (PREP) Districts' = 'ALL PREP', 'United Way of Blue Mountains Districts' = 'ALL Elevate','Puget Sound ESD Partnership Districts' = 'ALL PSESD','ESD 112 Partnership Districts' = 'ALL ESD 112'
+)) %>% 
+  # Rename method for All Students rows
+  mutate(Demographic.Method = if_else(Demographic.Name == "All Students", 
+                                       "All Students", 
+                                       Demographic.Method))  %>%
+  # Remove duplicates for each demographic group within each School Year + District
+  filter(!(duplicated(paste(Demographic.Name, High.School.Academic.Year, Region.Name, FAFSA.Completion.Rate, Region.Type, ReportDate)))) 
+
+# Keep only max report date per year 
+FAFSA_max_filter <- FAFSA_21_current %>%
+  distinct(ReportDate,High.School.Academic.Year) %>%
+  group_by(High.School.Academic.Year) %>%
+  summarize(ReportDate=max(ReportDate)) 
+
+FAFSA_21_current_filtered <- FAFSA_21_current %>%
+  inner_join(FAFSA_max_filter, by=c("High.School.Academic.Year"="High.School.Academic.Year","ReportDate"="ReportDate"))
+
+# Join new and prior FAFSA data
+FAFSA_all <- bind_rows(FAFSA_13_21,FAFSA_21_current_filtered) 
+
+# Final clean of column names
+FAFSA_Final <- FAFSA_all %>% rename(
+"Horizons" = Program.Partnership, "Year" = High.School.Academic.Year) %>% select(-ReportDate)
+
+FAFSA_Final$FAFSA_Year <- as.character(as.integer(substr(FAFSA_Final$Year, 1, 4)) + 1)    
+FAFSA_Final <- FAFSA_Final %>% select(-Year)
+     
+# Modify Enrollment_HRP_12Final to match to FAFSA data
+Enrollment_HRP_12_long <- Enrollment_HRP_12Final %>%
+  select(SchoolYear,DistrictCode,Horizons.Partner,Gradelevel,Male, Asian, Native.Hawaiian.Other.Pacific.Islander, All.Students, Gender.X, Black.African.American, Two.or.More.Races, Female, American.Indian.Alaskan.Native, Hispanic.Latino.of.any.race.s., White) %>%
+    rename("All Students"=All.Students,
+        Black=Black.African.American,
+        NativeHawaiianOtherPacificIslander=Native.Hawaiian.Other.Pacific.Islander,
+        HispanicLatino=`Hispanic.Latino.of.any.race.s.`,
+        AmericanIndianAlaskanNative=American.Indian.Alaskan.Native,
+        TwoOrMoreRaces=`Two.or.More.Races`,
+        "X/Non-Binary"=Gender.X) %>%
+  pivot_longer(
+    cols=c("Male", "Asian", "NativeHawaiianOtherPacificIslander",  "All Students", "X/Non-Binary", "Black", "TwoOrMoreRaces", "Female", "AmericanIndianAlaskanNative", "HispanicLatino", "White"),
+               names_to="Demographic.Name",
+               values_to="Students")
+
+## Update format of school year to align with FAFSA data
+Enrollment_HRP_12_long <- Enrollment_HRP_12_long %>%
+  mutate(
+    SchoolYear = str_replace(
+      SchoolYear,
+      "^(\\d{4})-(\\d{2})$",
+      function(x) {
+        start_year <- as.integer(str_match(x, "^(\\d{4})-(\\d{2})$")[,2])
+        end_year_suffix <- as.integer(str_match(x, "^(\\d{4})-(\\d{2})$")[,3])
+        end_year <- ifelse(end_year_suffix < 100, start_year %/% 100 * 100 + end_year_suffix, end_year_suffix)
+        paste0(start_year, "-", end_year)
+      }
+    )
+  ) %>% select(-Gradelevel) %>% #Clean HRP names
+  mutate(Horizons.Partner = case_when(
+    Horizons.Partner == "West Sound STEM - Tier 2" & 
+      SchoolYear %in% c("2014-2015", "2015-2016", "2016-2017", "2017-2018", "2019-2020") ~ "PREP - Tier 2",
+    Horizons.Partner == "West Sound STEM - Tier 2" ~ "PREP", ## Note to self, Will need to add back Tier 2 once avail from WSAC.
+    Horizons.Partner == "West Sound STEM" ~ "PREP",
+    Horizons.Partner == "United Way of the Blue Mountains" ~ "Elevate",
+    Horizons.Partner == "Puget Sound ESD" ~ "PSESD",
+    TRUE ~ Horizons.Partner
+  )) 
+
+# Create regional totals
+Enrollment_HRP_12_long_HRPTotal <- Enrollment_HRP_12_long %>% 
+  group_by(SchoolYear,Horizons.Partner,Demographic.Name) %>% summarize(Students = sum(Students)) %>% mutate(DistrictCode = 'ALL')
+
+# Join regional and district totals
+Enrollment_HRP_12_long <- bind_rows(Enrollment_HRP_12_long,Enrollment_HRP_12_long_HRPTotal)
+
+# Crosswalk to HRP
+FAFSA_All_dist_codes <- join_to_hrp(
+  df = FAFSA_all,
+  crosswalk = Crosswalk_FAFSA,
+  by_column = "Region.Name",
+  crosswalk_column = "FAFSA.District",
+  keep_cols = c("District.Code")
+) %>%
+  mutate(District.Code = if_else(Region.Type == "Region", 
+                                "ALL", 
+                                District.Code))
+
+# Add students to district 
+## Leave nulls for suppressed completion rates
+FAFSA_demos <- FAFSA_All_dist_codes %>% mutate("District Code" = as.character(District.Code)) %>% left_join(Enrollment_HRP_12_long,by=c("High.School.Academic.Year"="SchoolYear","District Code"="DistrictCode","Demographic.Name"="Demographic.Name", "Program.Partnership" = "Horizons.Partner")) %>%
+  mutate(FAFSA.Completion.Rate=as.numeric(FAFSA.Completion.Rate),Completed=Students*FAFSA.Completion.Rate)  
+# Rename columns to match tableau (WSAC SAP download)
+## Leave nulls for 
+WSAC_FAFSA <- FAFSA_demos %>%
+  rename(
+    Year = High.School.Academic.Year,
+    `Demographic Value` = Demographic.Name,
+    `Demographic Group` = Demographic.Method, 
+    Cohort = Students, 
+    `Estimated Completion` = Completed,
+    Horizons = Program.Partnership,
+    `Region Type` = Region.Type,
+    `Region Name` = Region.Name
+  ) %>%
+  mutate(
+    Year = sub("^(\\d{4})-(\\d{2})$", "\\1-20\\2", Year),
+    Year = as.character(str_sub(Year, -4))
+  )
+
+# Calculate rate for all HRP
+HRP_weighted_avgs <- WSAC_FAFSA %>% filter(`Region Type` == "Region") %>% filter(`Demographic Value` == "All Students") %>%   filter(!is.na(`Estimated Completion`), !is.na(Cohort), Cohort > 0) %>%  # exclude missing or zero Students
+  group_by(Year) %>%
+  summarise(
+    `Estimated Completion` = sum(`Estimated Completion`, na.rm = TRUE),
+    Cohort = sum(Cohort, na.rm = TRUE),
+    FAFSA.Completion.Rate = `Estimated Completion` / Cohort,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    Region.Type = paste("All HRP"), Horizons = paste("All HRP"), Region.Name = paste("All HRP"), Demographic.Name = paste("All Students")) %>% rename(FAFSA_Year = Year)
+
+HRP_weighted_avgs_demos <- WSAC_FAFSA %>% filter(`Region Type` == "Region") %>%   filter(!is.na(`Estimated Completion`), !is.na(Cohort), Cohort > 0) %>%  # exclude missing or zero Students
+  group_by(Year,`Demographic Group`, `Demographic Value`) %>%
+  summarise(
+    `Estimated Completion` = sum(`Estimated Completion`, na.rm = TRUE),
+    Cohort = sum(Cohort, na.rm = TRUE),
+    FAFSA.Completion.Rate = `Estimated Completion` / Cohort,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    `Region Type` = paste("All HRP"), Horizons = paste("All"), `Region Name` = paste("All HRP"))
+
+# Bind final DFs back to HRP totals
+FAFSA_Final <- bind_rows(FAFSA_Final, HRP_weighted_avgs)
+WSAC_FAFSA <- bind_rows(WSAC_FAFSA, HRP_weighted_avgs_demos)
+
+## Write outputs
+write_dashboard_file(FAFSA_Final,"FAFSA_Final.xlsx",dashboard_dir)
+write_dashboard_file(FAFSA_Final,"FAFSA_Final.xlsx",output_dir)
+write_dashboard_file(WSAC_FAFSA, "WSAC-FAFSA Completion.xlsx",dashboard_dir) 
+write_dashboard_file(WSAC_FAFSA, "WSAC-FAFSA Completion.xlsx",output_dir)
+```
+# REPORT CARD GRADUATION DATA PROCESSING
+## Export most recent report card graduation file and save as RC_Graduation.csv to yearly export folder.
+
+### [Reportcard Graduation Data Link](https://data.wa.gov/browse?q=report+card+graduation&sortBy=relevance&pageSize=20)
+
+### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
+```{r}
+#compare_column_names("RC_Graduation.csv")
+```
+
+```{r}
+# Read in data, split out QVSD
+RC_Grad_All <- fix_district_code(read_csv(
+  file.path(base_dir, "Horizons/1.Data/Raw_Data", paste0(currentyear, "_Exports"), "RC_Graduation.csv"),
+  col_types = cols(.default = col_guess()))) %>%
+  mutate(
+    GraduationRate = if_else(
+      (is.na(GraduationRate) | GraduationRate == "NULL") & str_starts(DAT, ">"),
+      as.numeric(str_remove_all(DAT, "[^0-9\\.]")) / 100,
+      as.numeric(GraduationRate)
+    )
+  )
+
+grad_numeric_cols <- c(
+  "BeginningGrade9", "TransferIn", "Year1Dropout", "Year2Dropout", "Year3Dropout",
+  "Year4Dropout", "Year5Dropout", "Year6Dropout", "Year7Dropout", "TransferOut",
+  "FinalCohort", "Graduate", "continuing", "dropout"
+)
+
+RC_Grad_All[grad_numeric_cols] <- lapply(RC_Grad_All[grad_numeric_cols], as.numeric)
+
+RC_Grad_WO_QVSD <- RC_Grad_All %>% filter(DistrictCode != "05402") %>% filter(OrganizationLevel=="District")
+RC_Grad_WO_QVSD_5yr <- RC_Grad_WO_QVSD %>% filter(StudentGroup== "All Students", Cohort == "Five Year")  %>% 
+  select(SchoolYear, DistrictCode, DistrictName, 
+         StudentGroup, BeginningGrade9, FinalCohort, Graduate ,GraduationRate
+         ) 
+# Filter to school level to recreate district totals for QVSD, then rejoin with all other district totals
+RC_Grad_W_QVSD <- RC_Grad_All %>% filter(DistrictCode == "05402") %>% filter(!(SchoolCode %in% c("5529", "5071")))
+summarize_cohort <- function(cohort_label) {
+  RC_Grad_W_QVSD %>%
+    filter(
+      OrganizationLevel == "School",
+      Cohort == cohort_label
+    ) %>%
+    group_by(SchoolYear, DistrictCode, DistrictName, StudentGroup, StudentGroupType) %>%
+    summarize(
+      across(all_of(grad_numeric_cols), sum, na.rm = TRUE),
+      Graduate = sum(Graduate, na.rm = TRUE),
+      FinalCohort = sum(FinalCohort, na.rm = TRUE),
+      GraduationRate = ifelse(FinalCohort > 0, Graduate / FinalCohort, NA_real_),
+      .groups = "drop"
+    ) %>%
+    mutate(
+      SchoolCode = NA,
+      SchoolName = "District Total",
+      CohortType = cohort_label
+    ) 
+}
+# Get 4-year and 5-year district totals
+RC_Grad_4yr <- summarize_cohort("Four Year")
+RC_Grad_5yr <- summarize_cohort("Five Year") 
+RC_Grad_6yr <- summarize_cohort("Six Year") 
+RC_Grad_7yr <- summarize_cohort("Seven Year") 
+
+RC_Grad_New <- bind_rows(RC_Grad_4yr,RC_Grad_5yr) %>% bind_rows(RC_Grad_6yr) %>% bind_rows(RC_Grad_7yr) %>% bind_rows(RC_Grad_WO_QVSD)
+
+RC_Grad_5yr_AllStudents <- RC_Grad_5yr %>% filter(StudentGroup== "All Students")  %>% 
+  select(SchoolYear, DistrictCode, DistrictName, # studentGroupType, 
+         StudentGroup, BeginningGrade9, FinalCohort, Graduate ,GraduationRate
+         ) 
+
+# Prep needed for future PS Calc
+RC_Grad_New_For_PS <- bind_rows(RC_Grad_WO_QVSD_5yr,RC_Grad_5yr_AllStudents)
+
+Horizon_Grads_New <- RC_Grad_New_For_PS %>%
+  mutate(# school year needs to be adjusted by 1 year to align to five year cohort
+        CohortYearTTL = str_sub(SchoolYear, 1, 4))
+
+# Add HRP 
+RC_Grad_New_HP <- join_to_hrp(
+  df = RC_Grad_New,
+  crosswalk = Crosswalk_K12,
+  by_column = "DistrictCode",
+  crosswalk_column = "District.Code",
+  keep_cols = c("Horizons.Partner")
+)
+
+Horizon_Grads_New <- join_to_hrp(
+  df = Horizon_Grads_New,
+  crosswalk = Crosswalk_K12,
+  by_column = "DistrictCode",
+  crosswalk_column = "District.Code",
+  keep_cols = c("Horizons.Partner")
+)
+
+# Read in the consolidated file from last year's finalized folder
+RC_Grad_Prior <- fix_district_code(read.delim(file.path(base_dir,"Horizons/1.Data/Cleaned_Data", paste0(currentyear-1),"RC_Graduation_Clean.CSV"), sep= "|")) 
+
+Horizon_Grads_Prior <- fix_district_code(read_delim(
+  file = file.path(base_dir, "Horizons/1.Data/Cleaned_Data", paste0(currentyear - 1), "Horizon_Graduates.csv"),
+  delim = NULL,
+  show_col_types = FALSE
+))
+
+RC_Grad_Final <- combine_years(RC_Grad_New_HP, RC_Grad_Prior)
+Horizon_Grads_Final <- combine_years(Horizon_Grads_New, Horizon_Grads_Prior) 
+
+#Replace null final cohort and graduates with estimated from enrollment data
+Enrollment_HRP_12_ALL <- Enrollment_HRP_12Final %>% select(SchoolYear,DistrictCode,All.Students)
+
+Horizon_Grads_Final <- Horizon_Grads_Final %>%
+  left_join(Enrollment_HRP_12_ALL, by = c("SchoolYear", "DistrictCode")) %>%
+  mutate(
+    FinalCohort = if_else(is.na(FinalCohort), All.Students, FinalCohort),
+    Graduate = if_else(is.na(Graduate), FinalCohort * GraduationRate, Graduate)
+  ) %>% select(-All.Students)
+
+### Write outputs
+write_dashboard_file(RC_Grad_Final,"RC_Graduation_Clean.csv",dashboard_dir)
+write_dashboard_file(RC_Grad_Final,"RC_Graduation_Clean.csv",output_dir)
+
+write_dashboard_file(Horizon_Grads_Final,"Horizon_Graduates.csv",output_dir)
+```
+# POSTSECONDARY DATA PROCESSING
+## Export most recent ERDC data and save as Enrollment_by_Institution.csv & First_Year_Enrollment.csv to yearly export folder. 
+
+### [Enrollment_by_Institution Data Link](https://data.wa.gov/browse?q=High+School+Graduate+Outcomes+-+Enrollment+by+Institution&sortBy=relevance&pageSize=20). 
+
+### [First_Year_Enrollment Data Link](https://data.wa.gov/browse?q=High+School+Graduate+Outcomes+-+First+Year+Enrollment&sortBy=relevance&pageSize=20)
+
+### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
+```{r}
+## currently deactivated bc nothing saved to prior year folder due to this being new data processing
+# compare_column_names("Enrollment_by_Institution.csv")
+# compare_column_names("First_Year_Enrollment.csv")
+```
+
+```{r}
+# Read in ERDC data
+Enroll_By_Inst_All <- read.csv(
+  file.path(base_dir, "Horizons/1.Data/Raw_Data", paste0(currentyear, "_Exports"), "Enrollment_by_Institution.csv"),
+  stringsAsFactors = FALSE) %>% rename(DistrictCode = LEACode)
+Enroll_By_Inst_All <- clean_redacted_pct(Enroll_By_Inst_All)
+
+
+First_Year_Enroll_All <- read.csv(file.path(base_dir,"Horizons/1.Data/Raw_Data", paste0(currentyear,"_Exports"),"First_Year_Enrollment.csv"),
+  stringsAsFactors = FALSE
+) %>% filter(DemographicGroup == "All Students") %>% rename(DistrictCode = LEACode) 
+
+First_Year_Enroll_All <- clean_redacted_pct(First_Year_Enroll_All)
+
+# Replace Quillayute Valley district total with Forks High School data.
+Enroll_By_Inst_No_Quillayute <- Enroll_By_Inst_All %>% filter(DistrictTTL != "Quillayute Valley") %>% filter(SchoolCode == "9999")
+Enroll_By_Inst_Only_Quillayute <- Enroll_By_Inst_All %>%
+  filter(DistrictTTL == "Quillayute Valley") %>%
+  filter(!(SchoolCode %in% c("5529", "5071", "9999"))) %>%
+  mutate(
+    DistrictCode = "05402",
+    SchoolTTL = "District Wide",
+    SchoolCode = "9999"
+  )
+Enroll_By_Inst <- bind_rows(Enroll_By_Inst_No_Quillayute,Enroll_By_Inst_Only_Quillayute)
+
+First_Year_Enroll_No_Quillayute <- First_Year_Enroll_All %>% filter(DistrictTTL != "Quillayute Valley") %>% filter(SchoolCode == "9999")
+First_Year_Enroll_Only_Quillayute <- First_Year_Enroll_All %>%
+  filter(DistrictTTL == "Quillayute Valley") %>%
+  filter(!(SchoolCode %in% c("5529", "5071", "9999"))) %>%
+  mutate(
+    DistrictCode = "05402",
+    SchoolTTL = "District Wide",
+    SchoolCode = "9999"
+  )
+First_Year_Enroll <- bind_rows(First_Year_Enroll_No_Quillayute,First_Year_Enroll_Only_Quillayute) %>% select(-SchoolTTL)
+
+# Add in estimates (Pct_Alt) for suppressed ranges, then join back with actuals
+Redacted_Range <- data.frame(
+  RedactedPct = c(
+    "0-1", "0-10", "0-2", "0-20", "0-5", "10-14", "11-19", "15-19", "20-24", "20-29", "21-40", "25-29", "30-34", "30-39", "3-4", "35-39", "40-44", "40-49", "41-60", "45-49", "50-54", "50-59", "55-59", "5-9", "60-64", "60-69", "61-80", "65-69", "6-9", "70-74", "70-79", "75-79", "80-100", "80-84", "80-89", "85-89", "90-100", "90-94", "95-100"
+  ),
+  Pct_Alt = c(
+    0.005, 0.05, 0.01, 0.1, 0.025, 0.12, 0.15, 0.17, 0.22, 0.245,
+    0.305, 0.27, 0.32, 0.345, 0.035, 0.37, 0.42, 0.445, 0.505, 0.47,
+    0.52, 0.545, 0.57, 0.07, 0.62, 0.645, 0.705, 0.67, 0.075, 0.72,
+    0.745, 0.77, 0.9, 0.82, 0.845, 0.87, 0.95, 0.92, 0.975
+  )
+)
+
+# Join and fill in missing Pct values with estimated Pct_Alt
+Enroll_By_Inst_Final <- Enroll_By_Inst %>%
+  left_join(Redacted_Range, by = "RedactedPct") %>%
+  mutate(Pct = ifelse(is.na(Pct), Pct_Alt, Pct)) %>%
+  select(-Pct_Alt)
+
+First_Year_Enroll_Final <- First_Year_Enroll %>%
+  left_join(Redacted_Range, by = "RedactedPct") %>%
+  mutate(Pct = ifelse(is.na(Pct), Pct_Alt, Pct)) %>%
+  select(-Pct_Alt) 
+
+# Join Horizon_Grads (created in Report Card chunk) and First_Year_Enroll
+Horizon_Grads_Final <- Horizon_Grads_Final %>%
+  mutate(GraduationRate = as.numeric(GraduationRate)) %>%
+  mutate(DistrictTTL = str_remove(DistrictName, " School District$"))
+
+First_Year_Enroll_Final <- First_Year_Enroll_Final %>%
+  mutate(
+    CohortYearTTL = as.character(CohortYearTTL),
+    Pct = as.numeric(Pct)
+  ) 
+
+# Join
+## Pct from First_Year_Enroll_Final is defined as percent of high school graduates enrolled in post secondary institutions in the first year. Calculate the cohort (HS graduates and non HS graduates) enrollment rate. "Not Enrolled" category includes graduates who didn’t enroll & students who didn’t graduate at all.
+PS_Enroll <- Horizon_Grads_Final %>% inner_join(First_Year_Enroll_Final,
+  by = c("CohortYearTTL", "DistrictCode")) %>%
+  mutate(
+    `Cohort Enrollment Rate` = Pct * GraduationRate,
+    `Cohort Enrollment Rate` = ifelse(
+      is.na(GraduationRate), NA,  # handle null GraduationRate
+      ifelse(
+        PSEnrollLevel == "Not Enrolled",
+        `Cohort Enrollment Rate` + (1 - GraduationRate),
+        `Cohort Enrollment Rate`
+      )
+    )
+  )
+
+# Join Horizon_Grads and Enrollment by Inst
+Enroll_By_Inst <- inner_join(
+  Enroll_By_Inst_Final %>% mutate(CohortYearTTL = as.character(CohortYearTTL)),
+  Horizon_Grads_Final,
+  by = c("CohortYearTTL","DistrictCode")
+)
+                  
+# Join PS_Enroll and Enroll_By_Inst
+PS_Enroll <- PS_Enroll %>%
+  mutate(
+    CohortYearTTL = as.character(CohortYearTTL),
+    FinalCohort = as.numeric(FinalCohort),
+    `Cohort Enrollment Rate` = as.numeric(`Cohort Enrollment Rate`),
+    Pct = as.numeric(Pct),
+    RedactedPct = as.numeric(gsub("[^0-9\\.]", "", RedactedPct))  # Strip non-numeric
+  )
+
+Enroll_By_Inst_Final <- Enroll_By_Inst_Final %>%
+  mutate(
+    CohortYearTTL = as.character(CohortYearTTL),
+    Pct = as.numeric(Pct),
+    RedactedPct = as.numeric(gsub("[^0-9\\.]", "", RedactedPct))  # Same cleaning
+  )
+
+# Join and compute
+## Pct from Enroll_By_Inst_Final is defined as percent of high school graduates attending a specified institution. Calculate the number of institution enrollees (HS graduates X cohort enrollment rate X pct attending an institution). 
+PS_Enroll_For_Join <- PS_Enroll %>% select(-Pct,-GraduationRate,-RedactedPct)
+PSInst_Source_Dis <- inner_join(Enroll_By_Inst_Final,PS_Enroll_For_Join,
+  by = c("CohortYearTTL","DistrictCode", "PSEnrollLevel")
+) %>%
+  mutate(
+    Enrollees = FinalCohort * `Cohort Enrollment Rate` * Pct
+  )
+
+PS_Enroll_Final <- PS_Enroll %>% select(DistrictCode,DistrictName,FinalCohort,Graduate,GraduationRate,CohortYearTTL,Horizons.Partner,PSEnrollLevel,Pct,`Cohort Enrollment Rate`)
+
+PSInst_Source_Dis_Final <- PSInst_Source_Dis %>% select(SchoolYear, DistrictCode, DistrictName,FinalCohort,Graduate,CohortYearTTL,Horizons.Partner,DistrictTTL,PSEnrollLevel,Pct,`Cohort Enrollment Rate`,SchoolTTL,PSOrganizationTTL,Enrollees)
+
+# Write outputs
+write_dashboard_file(PS_Enroll_Final,"Horizon_2015_Current_PS_Enrollment.csv",dashboard_dir)
+write_dashboard_file(PS_Enroll_Final,"Horizon_2015_Current_PS_Enrollment.csv",output_dir)
+write_dashboard_file(PSInst_Source_Dis_Final,"PSInst_Source_Districts.csv",dashboard_dir)
+write_dashboard_file(PSInst_Source_Dis_Final,"PSInst_Source_Districts.csv",output_dir)
+```
+
+# POSTSECONDARY ENROLLMENT SANKEY PROCESSING
+```{r, echo=TRUE, results='hide', warning=FALSE}
+# Load data produced in POSTSECONDARY DATA PROCESSING step.
+PSenroll <- PSInst_Source_Dis_Final
+
+# Create Data File
+PSenroll_data <- PSenroll %>%  
+select(CohortYear=CohortYearTTL
+    ,PSOrg=PSOrganizationTTL
+    ,District=DistrictTTL
+    ,Horizon=Horizons.Partner
+    ,Cohort=FinalCohort
+    ,Enrollees=Enrollees
+    ,CohortEnrollmentRate='Cohort Enrollment Rate'
+    ,PSEnrollLevel=PSEnrollLevel
+    ,Graduate)
+
+# Calc Not Enrolled: Select enrollment rates by ps type (2yr/4yr ), district, & year by dropping postsecondary(ps) inst and finding the max enrollment rate by ps type. 
+
+NotEnrolled_1 <- PSenroll %>%
+  select(CohortYear=CohortYearTTL
+         ,District=DistrictTTL
+         ,Horizon=Horizons.Partner
+         ,Cohort=FinalCohort
+         ,CohortEnrollmentRate='Cohort Enrollment Rate'
+         ,PSEnrollLevel=PSEnrollLevel
+         ,Graduate) %>%
+  group_by(CohortYear
+         ,District
+         ,Horizon
+         ,Cohort
+         ,Graduate
+         ,PSEnrollLevel) %>%
+  filter(CohortEnrollmentRate == max(CohortEnrollmentRate)) %>%
+  distinct()
+
+# Calc Not Enrolled: Multiply cohort by enrollment rates, sum for each district/year, (1-sum of enrolled) = not enrolled.
+NotEnrolled_2 <- NotEnrolled_1 %>%
+  mutate(Enrolled=(Cohort*CohortEnrollmentRate)) %>%
+  group_by(CohortYear
+           , District
+           , Horizon
+           , Cohort
+           ,Graduate
+           ) %>%
+summarize(
+  Enrollees = sum(Enrolled, na.rm = TRUE),
+  CohortEnrollmentRate = sum(CohortEnrollmentRate, na.rm=TRUE),
+  .groups = 'drop'
+)
+    
+NotEnrolled <- NotEnrolled_2 %>%
+  mutate(Enrollees=Cohort-Enrollees
+         , CohortEnrollmentRate=1-CohortEnrollmentRate
+         , PSEnrollLevel="Not Enrolled"
+         , PSOrg = "Not Enrolled")
+
+# Calc Not Enrolled: Union NotEnrolled dataset with PSenroll dataset 
+SankeyData <- union(PSenroll_data,NotEnrolled) 
+SankeyData <- SankeyData %>%
+  rename(Size=Enrollees) %>%
+  mutate("Step 1"=District, "Step 2"=PSOrg) 
+
+# Replace Nulls with 0
+SankeyData <- SankeyData %>%
+  mutate(across(where(is.numeric), ~replace_na(., 0)))
+# Add Link column
+Link <- rep("link",length.out=nrow(SankeyData))
+SankeyData$Link <- Link
+
+# Add Model Columns (map each data point to a step on the curves)
+model <- read.xlsx(file.path(base_dir,"Horizons/1.Data/Cleaned_Data/Sankey Template.xlsx"),sheet="Model")
+
+SankeyDataModel <- full_join(model,SankeyData,by="Link")
+SankeyDataModel_Final <- SankeyDataModel %>% arrange(CohortYear,PSOrg,District,"Step 1","Step 2","path") %>% filter(!is.na(Horizon))
+
+# Create data file & write output
+SankeyDataModel_Final %>% 
+  arrange(Size,PSOrg)
+
+write_dashboard_file(SankeyDataModel_Final,"SankeyDataModel.xlsx",dashboard_dir)
+write_dashboard_file(SankeyDataModel_Final,"SankeyDataModel.xlsx",output_dir)
+```
+
+# DUAL CREDIT DATA PROCESSING
+## Export most recent report card SQSS file and save as RC_SQSS.csv to yearly export folder. 
+
+### [Report Card SQSS Data Link](https://data.wa.gov/browse?q=report+card+sqss&sortBy=relevance&pageSize=20)
+
+### **ACTION ITEM**: Check for changed column names and update as needed, then run remainder of script
+```{r}
+## currently deactivated bc nothing saved to prior year folder due to this being new data processing
+#compare_column_names("RC_SQSS.csv")
+```
+
+```{r}
+# Read in data
+RC_SQSS_ALL <- fix_district_code(read.csv(file.path(base_dir,"Horizons/1.Data/Raw_Data", paste0(currentyear,"_Exports"),"RC_SQSS.csv"))) %>% filter(GradeLevel == "All Grades", Measure == "Dual Credit") %>%
+  mutate(DistrictCode = as.character(DistrictCode),
+         SchoolCode = as.character(SchoolCode))
+
+# Split out QVSD, recreate district total, then rejoin with all districts
+RC_SQSS_WO_QVSD <- RC_SQSS_ALL %>% filter(DistrictCode != "05402") %>% filter(OrganizationLevel=="District")
+
+RC_SQSS_W_QVSD <- RC_SQSS_ALL %>% filter(DistrictCode == "05402") %>% filter(!(SchoolCode %in% c("5529", "5071")))
+
+# Summarize to the district level (preserving course number & percent fields)
+RC_SQSS_W_QVSD <- RC_SQSS_W_QVSD %>%
+  group_by(SchoolYear, DistrictCode, DistrictName, ESDName, StudentGroupType, StudentGroup, GradeLevel, Measure) %>%
+  summarize(
+    Numerator = sum(Numerator, na.rm = TRUE),
+    Denominator = sum(Denominator, na.rm = TRUE),
+    Percent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                     round(100 * sum(Numerator, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    
+    # Course Numbers
+    APCourseNumber = sum(APCourseNumber, na.rm = TRUE),
+    IBCourseNumber = sum(IBCourseNumber, na.rm = TRUE),
+    CIHSCourseNumber = sum(CIHSCourseNumber, na.rm = TRUE),
+    CambridgeCourseNumber = sum(CambridgeCourseNumber, na.rm = TRUE),
+    CTECourseNumber = sum(CTECourseNumber, na.rm = TRUE),
+    RunningStartCourseNumber = sum(RunningStartCourseNumber, na.rm = TRUE),
+    
+    # Course Percents — optional: weighted average or recalculate if needed
+    APCoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                             round(100 * sum(APCourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    IBCoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                             round(100 * sum(IBCourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    CIHSCoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                               round(100 * sum(CIHSCourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    CambridgeCoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                                    round(100 * sum(CambridgeCourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    CTECoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                              round(100 * sum(CTECourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    RunningStartCoursePercent = ifelse(sum(Denominator, na.rm = TRUE) == 0, NA,
+                                       round(100 * sum(RunningStartCourseNumber, na.rm = TRUE) / sum(Denominator, na.rm = TRUE), 1)),
+    
+    .groups = "drop"
+  ) %>%
+  mutate(OrganizationLevel = "District")
+
+RC_SQSS_New_Filtered <- bind_rows (RC_SQSS_WO_QVSD, RC_SQSS_W_QVSD)
+
+# Add in DistrictOrganizationID
+RC_SQSS_New_V2 <- RC_SQSS_New_Filtered %>% mutate(DistrictOrganizationId = case_when(
+ESDName == 'Capital Region ESD 113' ~ '100004',
+ESDName == 'Educational Service District 101' ~ '100001',
+ESDName == 'Educational Service District 105' ~ '100002',
+ESDName == 'Educational Service District 112' ~ '100003',
+ESDName == 'Educational Service District 123' ~ '100007',
+ESDName == 'North Central Educational Service District 171' ~ '100008',
+ESDName == 'Northwest Educational Service District 189' ~ '100009',
+ESDName == 'Olympic Educational Service District 114' ~ '100005',
+ESDName == 'Puget Sound Educational Service District 121' ~ '100006',
+ESDName == 'Spokane Public Schools Charter Authorizer' ~ '105886',
+ESDName == 'Washington State Charter School Commission' ~ '105798'
+)) 
+
+# Crosswalk to HRP
+RC_SQSS_Horizons <- join_to_hrp(
+  df = RC_SQSS_New_V2,
+  crosswalk = Crosswalk_K12,
+  by_column = "DistrictCode",
+  crosswalk_column = "District.Code",
+  keep_cols = c("Horizons.Partner")
+)
+
+# Read in the consolidated file from last year's finalized folder
+RC_SQSS_Prior <- read.delim(file.path(base_dir,"Horizons/1.Data/Cleaned_Data", paste0(currentyear-1),"RC_SQSS_Clean.csv"), sep= "|") 
+
+RC_SQSS_Prior <- fix_district_code(RC_SQSS_Prior, column_name = "DistrictCode")
+
+# Join new data to prior years
+RC_SQSS_Final <- combine_years(RC_SQSS_Horizons,RC_SQSS_Prior)
+
+# Write outputs
+write_dashboard_file(RC_SQSS_Final,"RC_SQSS_Clean.csv",dashboard_dir)
+write_dashboard_file(RC_SQSS_Final,"RC_SQSS_Clean.csv",output_dir)
+```
+# POSTSECONDARY DEMOGRAPHICS DATA PROCESSING 
+## DRAFT, Update coming by end of August.
+
+###[IPDES data source](https://nces.ed.gov/ipeds/datacenter/InstitutionByName.aspx?sid=30ef727a-63d8-40ce-a1f1-e7dad2233c1e&rtid=1)
+```{r}
+## adding IPEDS data to EACH Horizons partner that, users will see any institutions students attend from their network
+
+# Read in data
+PSIPEDS <- read.csv(file.path(base_dir,"Horizons","1.Data","Cleaned_Data","2023_IPEDS_long.csv")) %>% mutate(institution.name=gsub("\\.", " ", institution.name)) %>%
+  mutate(institution.name=if_else(nchar(institution.name)<4,toupper(institution.name),str_to_title(institution.name))) 
+
+# Crosswalk to HRP
+IPEDS_Enrollment_Horizons <- join_to_hrp(
+  df = PSIPEDS,
+  crosswalk = Crosswalk_PS_Demo,
+  by_column = "institution.name",
+  crosswalk_column = "INST_IPEDS",
+  keep_cols = c("Horizon")
+)
+
+IPEDS_Enrollment_Final <- IPEDS_Enrollment_Horizons %>%
+  select(institution.name,Demographics,Students,Horizon) %>%
+  filter(!is.na(Students)) %>%
+  rename(Institution=institution.name) %>%
+  mutate(Students=as.numeric(Students)) %>%
+  filter(grepl("total", Demographics)) %>%
+  filter(Demographics!="Grand total") %>%
+  mutate(Demographics=gsub("\\Grand \\b", "", Demographics),Demographics=gsub("\\total \\b", "", Demographics),Demographics=gsub("\\ total\\b", "", Demographics)) 
+
+# Create data files 
+wb2 <- createWorkbook()
+addWorksheet(wb2,"Sheet1")
+writeData(wb2,"Sheet1",IPEDS_Enrollment_Final)
+saveWorkbook(wb2,file = file.path(output_dir,"Postsecondary Enrollment_Alt.xlsx"),
+             overwrite = TRUE)
+
+saveWorkbook(wb2,file = file.path(dashboard_dir,"Postsecondary Enrollment_Alt.xlsx"),
+             overwrite = TRUE)
+```
+
+# Review Step
+```{r}
+
+# HRP District codes
+required_districts <- c(
+  "05121", "05313", "05323", "05401", "05402", "05903", "06098", "07002",
+  "08401", "08402", "16048", "16050", "17210", "17401", "17406", "18303",
+  "18400", "18401", "18402", "18902", "20400", "20401", "20402", "20405",
+  "20406", "23403", "25101", "25155", "30303", "35200", "36140", "36250", "36402"
+)
+
+# Function to identify missing districts
+find_missing_districts <- function(df, year_col, district_col) {
+  ## Check if the provided columns exist
+  if (!(year_col %in% names(df))) stop(paste("Year column", year_col, "not found."))
+  if (!(district_col %in% names(df))) stop(paste("District column", district_col, "not found."))
+
+  ## Standardize column names and coerce types
+  df_standard <- df %>%
+    rename(SchoolYear = all_of(year_col), DistrictCode = all_of(district_col)) %>%
+    mutate(
+      Year = as.character(SchoolYear),
+      DistrictCode = as.character(DistrictCode)
+    )
+
+  ## Identify missing districts
+  df_standard %>%
+    group_by(Year) %>%
+    summarize(MissingDistricts = list(setdiff(required_districts, unique(DistrictCode))), .groups = "drop") %>%
+    unnest(MissingDistricts)
+}
+
+
+# PSInst_Source_Districts.csv
+str(PSInst_Source_Dis_Final)
+colnames(PSInst_Source_Dis_Final)
+PSInst_Source_Dis_CHECK  <- PSInst_Source_Dis_Final %>% select(SchoolYear,DistrictCode, Horizons.Partner) %>% distinct()
+PSInst_Source_Dis_Missing_Dis <- find_missing_districts(PSInst_Source_Dis_CHECK,
+  year_col = "SchoolYear",
+  district_col = "DistrictCode"
+)
+ 
+# Horizon_2015_Current_PS_Enrollment.csv
+str(PS_Enroll_Final)
+PS_Enroll_CHECK <- PS_Enroll_Final %>% select(CohortYearTTL,DistrictCode, Horizons.Partner) %>% distinct()
+PS_Enroll_Missing_Dis <- find_missing_districts(PS_Enroll_CHECK,
+  year_col = "CohortYearTTL",
+  district_col = "DistrictCode"
+)
+  
+# RC_SQSS_Clean.csv
+str(RC_SQSS_Final)
+RC_SQSS_Final_CHECK <- RC_SQSS_Final %>% select(SchoolYear,DistrictCode, Horizons.Partner) %>% distinct()
+RC_SQSS_Final_Missing_Dis <- find_missing_districts(RC_SQSS_Final_CHECK,
+  year_col = "SchoolYear",
+  district_col = "DistrictCode"
+)
+
+# SankeyDataModel.xlsx
+str(SankeyDataModel)
+SankeyDataModel_CHECK <- SankeyDataModel %>% select(CohortYear,PSOrg, District, Horizon) %>% distinct() %>% left_join(Crosswalk_K12, by =c('District' = 'ERDC.DistrictTTL'))
+
+SankeyDataModel_Missing_Dis <- find_missing_districts(SankeyDataModel_CHECK,
+  year_col = "CohortYear",
+  district_col = "District.Code"
+)
+
+# RC_Graduation_Clean.csv
+str(RC_Grad_Final)
+RC_Grad_Final_CHECK <- RC_Grad_Final %>% select(SchoolYear,DistrictCode, Horizons.Partner) %>% distinct()
+RC_Grad_Final_Missing_Dis <- find_missing_districts(RC_Grad_Final_CHECK,
+  year_col = "SchoolYear",
+  district_col = "DistrictCode"
+)
+
+# WSAC-FAFSA Completion.xlsx
+str(WSAC_FAFSA)
+WSAC_FAFSA_CHECK <- WSAC_FAFSA %>% select(`High School Graduation Year`,`District Code`, Horizons) %>% distinct()
+WSAC_FAFSA_Missing_Dis <- find_missing_districts(WSAC_FAFSA_CHECK,
+  year_col = "High School Graduation Year",
+  district_col = "District Code"
+)
+
+# FAFSA_Final.xlsx
+str(FAFSA_Final)
+FAFSA_Final_CHECK <- FAFSA_Final %>% 
+  select(FAFSA_Year, `District.Code`, Horizons.Partner) %>% 
+  distinct()
+
+FAFSA_Final_Missing_Dis <- find_missing_districts(
+  FAFSA_Final_CHECK,
+  year_col = "FAFSA_Year",
+  district_col = "District.Code"
+)
+
+# K12_Enrollment_horizons.xlsx
+str(Enrollment_Final)
+Enrollment_Final_CHECK <- Enrollment_Final %>% select(SchoolYear,DistrictCode, Horizons.Partner) %>% distinct()
+Enrollment_Final_Missing_Dis <- find_missing_districts(Enrollment_Final_CHECK,
+  year_col = "SchoolYear",
+  district_col = "DistrictCode"
+)
+
+# Postsecondary Enrollment_Alt.xlsx 
+str(IPEDS_Enrollment_Final) 
+IPEDS_Enrollment_CHECK <- IPEDS_Enrollment_Final %>% select(Institution,Horizon) %>% distinct()
+
+Missing_Districts_All <- bind_rows(
+  Enrollment_Final_Missing_Dis %>% mutate(Source = "Enrollment_Final_Missing_Dis"),
+  FAFSA_Final_Missing_Dis %>% mutate(Source = "FAFSA_Final_Missing_Dis"),
+  WSAC_FAFSA_Missing_Dis %>% mutate(Source = "WSAC_FAFSA_Missing_Dis"),
+  RC_Grad_Final_Missing_Dis %>% mutate(Source = "RC_Grad_Final_Missing_Dis"),
+  RC_SQSS_Final_Missing_Dis %>% mutate(Source = "RC_SQSS_Final_Missing_Dis"),
+  PS_Enroll_Missing_Dis %>% mutate(Source = "PS_Enroll_Missing_Dis"),
+  PSInst_Source_Dis_Missing_Dis %>% mutate(Source = "PSInst_Source_Dis_Missing_Dis"),
+  SankeyDataModel_Missing_Dis %>% mutate(Source = "SankeyDataModel_Missing_Dis")
+)
+
+Missing_Districts_All <- join_to_hrp(
+  df = Missing_Districts_All,
+  crosswalk = Crosswalk_K12,
+  by_column = "MissingDistricts",
+  crosswalk_column = "District.Code",
+  keep_cols = c("Horizons.Partner", "ERDC.DistrictTTL")
+) %>% rename(DistrictName=ERDC.DistrictTTL)
+
+
+write_dashboard_file(Missing_Districts_All,"Missing_Districts.csv",dashboard_dir)
+Missing_Districts_All
+```
