@@ -9,7 +9,7 @@ Washington STEM also provides technical assistance to regional partners as they 
 ### Data specific inquiries: impact@washingtonstem.org
 
 ## R Script
-### Last updated 8/1/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
+### Last updated 8/11/2025. Templates created by Rachel Tavolacci (rachel@washingtonstem.org) & Mikel Poppe (mikel@washingtonstem.org).
 ### Code of Conduct: 
 These templates are designed to help researchers and educators improve equitable
 postsecondary readiness by better understanding patterns between high school experiences and
@@ -43,7 +43,7 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
 
     A) Found in the base of the Cleaned_Data folder of this repo -> save to to your local 'Horizons/1.Data/Cleaned_Data/' folder:
     * 2023_IPEDS_long.csv
-    * FAFSA 10yrs.csv
+    * FAFSA_10_Yr.csv
     * Sankey Template. xlsx
     * Regional_Analysis_Crosswalk.xlsx
   
@@ -63,7 +63,6 @@ Contains subfolders of all raw and processed data needed to run scripts and conn
    ## Potential updates needed, noted as "Action items":
    * Review the *Check for changed column names and update as needed, then run remainder of script* ouptut and add code to need rename columns immeditaly after reading in new file to ensure script works properly.
    * Add new redacted ranges to the *#Function to clean any improper redacted ranges* as instructed by *⚠️ Values in RedactedPct containing letters (possible issues)* message in the console after running script.
-   * Add additional years as needed to the *filter(High.School.Academic.Year %in% c("2023-2024","2024-2025"))  %>% # **ACTION ITEM**: Add additional years here as needed.* line of code.
    
 6. Download the workbook (found in the workbook folder of this repo) and reconnect to the newly written files in your local *1.Data/Dashboard_Files* folder. Using the Missing_Districts.csv file, update data note text in workbook as needed. Save your own version of the workbook!
 
